@@ -11,12 +11,7 @@ interface Props {
 
 const { title, description = "Premium Corporate Agency" } = Astro.props;
 
-const navItems = [
-	{ name: 'Home', href: '/' },
-	{ name: 'Services', href: '/services' },
-	{ name: 'About', href: '/about' },
-	{ name: 'Work', href: '/work' },
-];
+import Navbar from '../components/Navbar';
 ---
 
 <!doctype html>
@@ -36,40 +31,7 @@ const navItems = [
 	<body class="flex flex-col min-h-screen">
 		<CustomCursor client:load />
 		<SmoothScroll client:load>
-			<!-- Sticky Glass Navbar -->
-			<header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
-				<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-					<!-- Logo -->
-					<a href="/" class="text-xl font-bold tracking-tighter uppercase">
-						Innovate<span class="text-neutral-400">.</span>
-					</a>
-
-					<!-- Desktop Nav -->
-					<nav class="hidden md:flex items-center gap-8">
-						{navItems.map((item) => (
-							<a 
-								href={item.href} 
-								class="text-sm font-medium text-neutral-600 hover:text-black transition-colors"
-							>
-								{item.name}
-							</a>
-						))}
-					</nav>
-
-					<!-- CTA -->
-					<div class="flex items-center gap-4">
-						<a 
-							href="/contact" 
-							class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-black rounded-full hover:bg-neutral-800 transition-colors"
-						>
-							Get in touch
-						</a>
-						<button class="md:hidden p-2 text-black">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-						</button>
-					</div>
-				</div>
-			</header>
+			<Navbar client:load />
 
 			<!-- Main Content -->
 			<main class="flex-grow pt-20">

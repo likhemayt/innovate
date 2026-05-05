@@ -38,28 +38,21 @@ const GSAPCarousel: React.FC<GSAPCarouselProps> = ({ items, title }) => {
       
       if (!container || !trigger) return;
 
-      // Calculate total scroll distance
-      // We use a function for end to handle resizing
       const getScrollAmount = () => {
-        return -(container.scrollWidth - window.innerWidth + (window.innerWidth > 768 ? 192 : 48)); // Adjust for padding
+        const containerWidth = container.scrollWidth;
+        const windowWidth = window.innerWidth;
+        return -(containerWidth - windowWidth);
       };
 
-      const totalWidth = container.scrollWidth;
-      const windowWidth = window.innerWidth;
-      const amountToScroll = totalWidth - windowWidth;
-
-      if (amountToScroll <= 0) return;
-
       gsap.to(container, {
-        x: -amountToScroll,
+        x: getScrollAmount,
         ease: "none",
         scrollTrigger: {
           trigger: trigger,
           pin: true,
           scrub: 1,
           start: "top top",
-          // The end should be proportional to the content width for a consistent scroll speed
-          end: () => `+=${container.scrollWidth}`,
+          end: () => `+=${container.scrollWidth - window.innerWidth}`,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
@@ -67,7 +60,7 @@ const GSAPCarousel: React.FC<GSAPCarouselProps> = ({ items, title }) => {
     }, triggerRef);
 
     return () => ctx.revert();
-  }, [items, imagesLoaded]); // Re-run when items change or images load
+  }, [items, imagesLoaded]);
 
   return (
     <section className="overflow-hidden bg-white py-24">
@@ -93,8 +86,10 @@ const GSAPCarousel: React.FC<GSAPCarouselProps> = ({ items, title }) => {
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
               ) : (
-                <div className="h-full w-full bg-neutral-900 flex items-center justify-center">
-                   <span className="text-neutral-700 text-9xl font-black">{item.id}</span>
+                <div className="h-full w-full bg-neutral-50 flex flex-col items-center justify-center p-12 text-center border-2 border-dashed border-neutral-200 rounded-[2rem]">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="text-neutral-300 mb-6"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1 0 2.5 0 5-2 7z"/><path d="M14 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h1c0 1 0 1 1 1 0 2.5 0 5-2 7z"/></svg>
+                   <span className="text-neutral-300 text-sm font-bold uppercase tracking-[0.5em] mb-4">Testimonial</span>
+                   <div className="w-12 h-0.5 bg-neutral-200"></div>
                 </div>
               )}
               
