@@ -22,10 +22,10 @@ const services = [
 
 <Layout title="Next-Gen Digital Marketing Agency">
 	<!-- Hero Section -->
-	<section class="relative max-w-7xl mx-auto px-6 pt-24 pb-32 flex flex-col items-center text-center">
+	<section class="relative max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-32 pb-24 md:pb-32 flex flex-col items-center text-center">
 		
 		<!-- Badge -->
-		<div class="animate-fade-in-up [animation-delay:0ms] opacity-0 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)]/50 text-[var(--text-secondary)] text-sm font-medium mb-8 backdrop-blur-md">
+		<div class="animate-fade-in-up [animation-delay:0ms] opacity-0 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)]/50 text-[var(--text-secondary)] text-xs md:text-sm font-medium mb-8 backdrop-blur-md">
 			<span class="relative flex h-2 w-2">
 			  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
 			  <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
@@ -34,37 +34,37 @@ const services = [
 		</div>
 
 		<!-- Headline -->
-		<h1 class="animate-fade-in-up [animation-delay:100ms] opacity-0 text-6xl md:text-8xl font-extrabold tracking-tight mb-8 leading-[1.1] text-[var(--text-primary)]">
-			Engineering <br />
+		<h1 class="animate-fade-in-up [animation-delay:100ms] opacity-0 text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-8 leading-[1.1] text-[var(--text-primary)]">
+			Engineering <br class="hidden sm:block" />
 			<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-shimmer bg-[length:200%_auto]">
 				Digital Growth.
 			</span>
 		</h1>
 
 		<!-- Subheadline -->
-		<p class="animate-fade-in-up [animation-delay:200ms] opacity-0 text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl mb-12 font-light leading-relaxed">
+		<p class="animate-fade-in-up [animation-delay:200ms] opacity-0 text-lg md:text-xl lg:text-2xl text-[var(--text-secondary)] max-w-3xl mb-12 font-light leading-relaxed px-2">
 			We architect precision-driven marketing strategies for enterprise startups. Outpace the competition with data, not guesswork.
 		</p>
 
 		<!-- CTAs -->
-		<div class="animate-fade-in-up [animation-delay:300ms] opacity-0 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-			<a href="/contact" class="group relative px-8 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] font-semibold rounded-full overflow-hidden shadow-lg hover:shadow-cyan-500/25 transition-all hover:-translate-y-1">
+		<div class="animate-fade-in-up [animation-delay:300ms] opacity-0 flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0">
+			<a href="/contact" class="group relative px-8 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] font-semibold rounded-full overflow-hidden shadow-lg hover:shadow-cyan-500/25 transition-all hover:-translate-y-1 w-full sm:w-auto">
 				<div class="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
 				<span class="relative flex items-center justify-center gap-2">
 					Start a Project
 					<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
 				</span>
 			</a>
-			<a href="/services" class="px-8 py-4 border border-[var(--border-color)] bg-[var(--bg-primary)]/50 backdrop-blur-md text-[var(--text-primary)] font-medium rounded-full hover:bg-[var(--bg-secondary)] transition-colors flex items-center justify-center">
+			<a href="/services" class="px-8 py-4 border border-[var(--border-color)] bg-[var(--bg-primary)]/50 backdrop-blur-md text-[var(--text-primary)] font-medium rounded-full hover:bg-[var(--bg-secondary)] transition-colors flex items-center justify-center w-full sm:w-auto">
 				Explore Services
 			</a>
 		</div>
 	</section>
 
 	<!-- Features Grid -->
-	<section class="relative max-w-7xl mx-auto px-6 pb-32">
+	<section class="relative max-w-7xl mx-auto px-4 md:px-6 pb-24 md:pb-32">
 		<!-- Background Glow for Grid -->
-		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-purple-500/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] bg-purple-500/10 blur-[80px] md:blur-[100px] rounded-full pointer-events-none -z-10"></div>
 		
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 			{
@@ -91,13 +91,13 @@ const services = [
 	<!-- Social Proof / Brands Section -->
 	<section class="border-y border-[var(--border-color)] bg-[var(--bg-secondary)]/30 backdrop-blur-sm py-16">
 		<div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
-			<p class="text-sm font-semibold text-[var(--text-secondary)] tracking-widest uppercase mb-8">Trusted by innovative teams</p>
-			<div class="flex flex-wrap justify-center gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-[var(--text-primary)]">
+			<p class="text-sm font-semibold text-[var(--text-secondary)] tracking-widest uppercase mb-8 text-center">Trusted by innovative teams</p>
+			<div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-[var(--text-primary)]">
 				<!-- Dummy Logos (SVG) -->
-				<svg class="h-8" viewBox="0 0 100 30" fill="currentColor"><path d="M10 15a5 5 0 100-10 5 5 0 000 10zm0 5a10 10 0 110-20 10 10 0 010 20z"/><text x="25" y="20" font-weight="bold" font-size="16" font-family="sans-serif">AcmeCorp</text></svg>
-				<svg class="h-8" viewBox="0 0 100 30" fill="currentColor"><rect x="0" y="5" width="20" height="20" rx="4"/><text x="28" y="21" font-weight="bold" font-size="16" font-family="sans-serif">Nexus</text></svg>
-				<svg class="h-8" viewBox="0 0 100 30" fill="currentColor"><polygon points="10,5 20,25 0,25"/><text x="25" y="20" font-weight="bold" font-size="16" font-family="sans-serif">Vertex</text></svg>
-				<svg class="h-8" viewBox="0 0 100 30" fill="currentColor"><circle cx="10" cy="15" r="8"/><circle cx="20" cy="15" r="8" fill-opacity="0.5"/><text x="35" y="20" font-weight="bold" font-size="16" font-family="sans-serif">Quantum</text></svg>
+				<svg class="h-6 md:h-8" viewBox="0 0 100 30" fill="currentColor"><path d="M10 15a5 5 0 100-10 5 5 0 000 10zm0 5a10 10 0 110-20 10 10 0 010 20z"/><text x="25" y="20" font-weight="bold" font-size="16" font-family="sans-serif">AcmeCorp</text></svg>
+				<svg class="h-6 md:h-8" viewBox="0 0 100 30" fill="currentColor"><rect x="0" y="5" width="20" height="20" rx="4"/><text x="28" y="21" font-weight="bold" font-size="16" font-family="sans-serif">Nexus</text></svg>
+				<svg class="h-6 md:h-8" viewBox="0 0 100 30" fill="currentColor"><polygon points="10,5 20,25 0,25"/><text x="25" y="20" font-weight="bold" font-size="16" font-family="sans-serif">Vertex</text></svg>
+				<svg class="h-6 md:h-8" viewBox="0 0 100 30" fill="currentColor"><circle cx="10" cy="15" r="8"/><circle cx="20" cy="15" r="8" fill-opacity="0.5"/><text x="35" y="20" font-weight="bold" font-size="16" font-family="sans-serif">Quantum</text></svg>
 			</div>
 		</div>
 	</section>
