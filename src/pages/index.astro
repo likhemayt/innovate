@@ -3,93 +3,147 @@ import Layout from '../layouts/Layout.astro';
 
 const services = [
 	{
+		number: '01',
 		title: 'SEO Strategy',
 		description: 'Dominating search rankings with advanced algorithmic alignment and high-authority link building ecosystems.',
-		icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>'
+		icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>'
 	},
 	{
+		number: '02',
 		title: 'Performance Marketing',
 		description: 'Hyper-targeted programmatic campaigns designed for maximum conversion velocity and minimal CAC.',
-		icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>'
+		icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>'
 	},
 	{
+		number: '03',
 		title: 'Data Analytics',
 		description: 'Transforming raw data pipelines into actionable, predictive insights using machine learning models.',
-		icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>'
-	}
+		icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>'
+	},
+	{
+		number: '04',
+		title: 'Content Strategy',
+		description: 'Engineering high-converting content ecosystems that drive engagement and establish lasting thought leadership.',
+		icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>'
+	},
+	{
+		number: '05',
+		title: 'Social Media',
+		description: 'Precision audience targeting and community building that converts followers into loyal brand advocates.',
+		icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>'
+	},
+	{
+		number: '06',
+		title: 'Brand Identity',
+		description: 'Crafting distinct visual identities that communicate authority and deeply resonate with your ideal customer profile.',
+		icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>'
+	},
+];
+
+const stats = [
+	{ value: '150+', label: 'Clients Worldwide' },
+	{ value: '400+', label: 'Projects Delivered' },
+	{ value: '8 yrs', label: 'Industry Experience' },
+	{ value: '98%', label: 'Client Retention' },
+];
+
+const process = [
+	{ step: '01', title: 'Discovery', desc: 'We deep-dive into your business, audience, and competitive landscape to uncover your biggest growth levers.' },
+	{ step: '02', title: 'Strategy', desc: 'We architect a precision-tailored roadmap with clear KPIs, channel mix, and budget allocation.' },
+	{ step: '03', title: 'Execute', desc: 'Our specialists deploy multi-channel campaigns with surgical precision and real-time adjustments.' },
+	{ step: '04', title: 'Optimize', desc: 'Continuous data-driven iteration compresses feedback loops and maximizes long-term performance.' },
+];
+
+const testimonials = [
+	{
+		quote: "Innovate transformed our digital presence completely. Organic traffic grew 340% in just 6 months — well beyond any expectation we had.",
+		author: "Sarah Chen",
+		role: "CMO, TechScale",
+		initial: "S"
+	},
+	{
+		quote: "The most data-driven agency we've worked with. Every recommendation is backed by real insights and delivered with precision.",
+		author: "Marcus Reyes",
+		role: "CEO, NexaFlow",
+		initial: "M"
+	},
+	{
+		quote: "Outstanding results across the board. Their performance campaigns cut our customer acquisition cost by 60% in Q1 alone.",
+		author: "Priya Nair",
+		role: "Head of Growth, Vertex",
+		initial: "P"
+	},
 ];
 ---
 
 <Layout title="Next-Gen Digital Marketing Agency">
-	<!-- Hero Section -->
-	<section class="relative max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-32 pb-24 md:pb-32 flex flex-col items-center text-center">
 
-		<!-- Headline -->
-		<h1 class="animate-fade-in-up [animation-delay:100ms] opacity-0 text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-8 leading-[1.1] text-[var(--text-primary)]">
-			Engineering <br class="hidden sm:block" />
-			<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-shimmer bg-[length:200%_auto]">
-				Digital Growth.
-			</span>
-		</h1>
+	<!-- ─── Hero ─────────────────────────────────────────────────────────── -->
+	<section class="relative max-w-7xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-20 md:pb-24">
 
-		<!-- Subheadline -->
-		<p class="animate-fade-in-up [animation-delay:200ms] opacity-0 text-lg md:text-xl lg:text-2xl text-[var(--text-secondary)] max-w-3xl mb-12 font-light leading-relaxed px-2">
-			We architect precision-driven marketing strategies for enterprise startups. Outpace the competition with data, not guesswork.
-		</p>
+		<div class="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-10 items-end">
 
-		<!-- CTAs -->
-		<div class="animate-fade-in-up [animation-delay:300ms] opacity-0 flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0">
-			<a href="/contact" class="group relative px-8 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] font-semibold rounded-full overflow-hidden shadow-lg hover:shadow-cyan-500/25 transition-all hover:-translate-y-1 w-full sm:w-auto">
-				<div class="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
-				<span class="relative flex items-center justify-center gap-2">
-					Start a Project
-					<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-				</span>
-			</a>
-			<a href="/services" class="px-8 py-4 border border-[var(--border-color)] bg-[var(--bg-primary)]/50 backdrop-blur-md text-[var(--text-primary)] font-medium rounded-full hover:bg-[var(--bg-secondary)] transition-colors flex items-center justify-center w-full sm:w-auto">
-				Explore Services
-			</a>
+			<!-- Left: headline + CTAs -->
+			<div>
+				<div class="animate-fade-in-up [animation-delay:0ms] opacity-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-secondary)]/50 text-[var(--text-secondary)] text-xs font-medium mb-8 backdrop-blur-md">
+					<span class="relative flex h-1.5 w-1.5">
+						<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+						<span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
+					</span>
+					Digital Marketing Agency — Est. 2016
+				</div>
+
+				<h1 class="animate-fade-in-up [animation-delay:80ms] opacity-0 text-[clamp(3rem,8vw,6.5rem)] font-extrabold tracking-tight leading-[1.04] text-[var(--text-primary)] mb-8">
+					We Drive<br/>
+					<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-shimmer bg-[length:200%_auto]">Measurable</span><br/>
+					Growth.
+				</h1>
+
+				<p class="animate-fade-in-up [animation-delay:180ms] opacity-0 text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mb-10 font-light leading-relaxed">
+					We architect precision-driven marketing strategies for ambitious brands. Outpace the competition with data, not guesswork.
+				</p>
+
+				<div class="animate-fade-in-up [animation-delay:280ms] opacity-0 flex flex-col sm:flex-row gap-4">
+					<a href="/contact" class="group relative px-8 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] font-semibold rounded-full overflow-hidden shadow-lg hover:shadow-cyan-500/20 transition-all hover:-translate-y-0.5 text-center">
+						<div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+						<span class="relative flex items-center justify-center gap-2">
+							Start a Project
+							<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+						</span>
+					</a>
+					<a href="/services" class="px-8 py-4 border border-[var(--border-color)] bg-[var(--bg-primary)]/50 backdrop-blur-md text-[var(--text-primary)] font-medium rounded-full hover:bg-[var(--bg-secondary)] transition-colors flex items-center justify-center gap-2">
+						Explore Services
+					</a>
+				</div>
+			</div>
+
+			<!-- Right: floating stat cards (desktop only) -->
+			<div class="animate-fade-in-up [animation-delay:380ms] opacity-0 hidden lg:flex flex-col gap-3">
+				<div class="p-5 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)]/60 backdrop-blur-xl">
+					<p class="text-4xl font-extrabold text-[var(--text-primary)] tracking-tight">150+</p>
+					<p class="text-xs text-[var(--text-secondary)] mt-1 tracking-wide">Global clients served</p>
+				</div>
+				<div class="p-5 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 backdrop-blur-xl">
+					<p class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 tracking-tight">98%</p>
+					<p class="text-xs text-[var(--text-secondary)] mt-1 tracking-wide">Client retention rate</p>
+				</div>
+				<div class="p-5 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-secondary)]/60 backdrop-blur-xl">
+					<p class="text-4xl font-extrabold text-[var(--text-primary)] tracking-tight">400+</p>
+					<p class="text-xs text-[var(--text-secondary)] mt-1 tracking-wide">Projects delivered</p>
+				</div>
+			</div>
 		</div>
 	</section>
 
-	<!-- Features Grid -->
-	<section class="relative max-w-7xl mx-auto px-4 md:px-6 pb-24 md:pb-32">
-		<!-- Background Glow for Grid -->
-		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] bg-purple-500/10 blur-[80px] md:blur-[100px] rounded-full pointer-events-none -z-10"></div>
-		
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-			{
-				services.map((service, index) => (
-					<div class={`animate-fade-in-up opacity-0 group relative p-8 rounded-3xl border border-[var(--border-color)] bg-[var(--bg-primary)]/70 backdrop-blur-xl hover:border-cyan-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgba(6,182,212,0.1)] overflow-hidden`} style={`animation-delay: ${400 + (index * 100)}ms`}>
-						<!-- Hover Gradient Background -->
-						<div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-						
-						<div class="relative z-10">
-							<div class="w-12 h-12 mb-6 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-								<Fragment set:html={service.icon} />
-							</div>
-							<h3 class="text-2xl font-bold mb-4 tracking-tight">{service.title}</h3>
-							<p class="text-[var(--text-secondary)] leading-relaxed">
-								{service.description}
-							</p>
-						</div>
-					</div>
-				))
-			}
-		</div>
-	</section>
-	
-	<!-- Social Proof / Brands Section -->
-	<section class="py-12 overflow-hidden">
+	<!-- ─── Brands Carousel ───────────────────────────────────────────────── -->
+	<section class="py-12 overflow-hidden border-y border-[var(--border-color)]">
 		<div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
-			<p class="text-sm font-semibold text-[var(--text-secondary)] tracking-widest uppercase mb-10 text-center">Trusted by innovative teams</p>
+			<p class="text-[0.65rem] font-semibold text-[var(--text-secondary)] tracking-[0.25em] uppercase mb-8 text-center">Trusted by innovative teams worldwide</p>
 		</div>
 		<div class="brands-carousel-wrapper relative">
-			<!-- Fade edges -->
 			<div class="pointer-events-none absolute inset-y-0 left-0 w-24 z-10" style="background: linear-gradient(to right, var(--bg-primary), transparent);"></div>
 			<div class="pointer-events-none absolute inset-y-0 right-0 w-24 z-10" style="background: linear-gradient(to left, var(--bg-primary), transparent);"></div>
 			<div class="brands-track flex gap-16 items-center">
-				<!-- Logo set (duplicated for seamless loop) -->
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 120 32" fill="currentColor"><circle cx="11" cy="16" r="9"/><text x="26" y="21" font-weight="bold" font-size="15" font-family="sans-serif">AcmeCorp</text></svg>
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 80 32" fill="currentColor"><rect x="0" y="6" width="20" height="20" rx="4"/><text x="28" y="22" font-weight="bold" font-size="15" font-family="sans-serif">Nexus</text></svg>
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 90 32" fill="currentColor"><polygon points="10,4 20,28 0,28"/><text x="26" y="22" font-weight="bold" font-size="15" font-family="sans-serif">Vertex</text></svg>
@@ -98,7 +152,7 @@ const services = [
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 100 32" fill="currentColor"><polygon points="10,4 19,12 16,24 4,24 1,12"/><text x="26" y="22" font-weight="bold" font-size="15" font-family="sans-serif">Phaeton</text></svg>
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 90 32" fill="currentColor"><path d="M10 4 L18 14 L10 24 L2 14Z"/><text x="26" y="22" font-weight="bold" font-size="15" font-family="sans-serif">Axiom</text></svg>
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 100 32" fill="currentColor"><circle cx="10" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="3"/><text x="26" y="22" font-weight="bold" font-size="15" font-family="sans-serif">Synapse</text></svg>
-				<!-- Duplicate set for seamless loop -->
+				<!-- duplicate -->
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 120 32" fill="currentColor"><circle cx="11" cy="16" r="9"/><text x="26" y="21" font-weight="bold" font-size="15" font-family="sans-serif">AcmeCorp</text></svg>
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 80 32" fill="currentColor"><rect x="0" y="6" width="20" height="20" rx="4"/><text x="28" y="22" font-weight="bold" font-size="15" font-family="sans-serif">Nexus</text></svg>
 				<svg class="brand-logo h-7 shrink-0" viewBox="0 0 90 32" fill="currentColor"><polygon points="10,4 20,28 0,28"/><text x="26" y="22" font-weight="bold" font-size="15" font-family="sans-serif">Vertex</text></svg>
@@ -111,30 +165,146 @@ const services = [
 		</div>
 	</section>
 
-	<style>
-		.brands-carousel-wrapper {
-			width: 100%;
-			overflow: hidden;
-		}
-		.brands-track {
-			width: max-content;
-			animation: brands-scroll 28s linear infinite;
-			opacity: 0.45;
-			filter: grayscale(1);
-			color: var(--text-primary);
-			transition: opacity 0.4s, filter 0.4s;
-		}
-		.brands-carousel-wrapper:hover .brands-track {
-			opacity: 0.85;
-			filter: grayscale(0);
-			animation-play-state: paused;
-		}
-		@keyframes brands-scroll {
-			0%   { transform: translateX(0); }
-			100% { transform: translateX(-50%); }
-		}
-		@media (prefers-reduced-motion: reduce) {
-			.brands-track { animation: none; }
-		}
-	</style>
+	<!-- ─── Stats Row ─────────────────────────────────────────────────────── -->
+	<section class="max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-24">
+		<div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-0 md:divide-x divide-[var(--border-color)]">
+			{stats.map(stat => (
+				<div class="flex flex-col items-center text-center px-4 md:px-8">
+					<span class="text-5xl md:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight leading-none">{stat.value}</span>
+					<span class="text-xs text-[var(--text-secondary)] mt-3 tracking-widest uppercase">{stat.label}</span>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ─── Services ──────────────────────────────────────────────────────── -->
+	<section class="border-t border-[var(--border-color)] py-20 md:py-28 max-w-7xl mx-auto px-4 md:px-6">
+
+		<!-- Section header -->
+		<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+			<div>
+				<p class="text-[0.65rem] font-semibold text-cyan-500 tracking-[0.25em] uppercase mb-4">What We Do</p>
+				<h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-[var(--text-primary)] leading-tight">
+					Services Built<br/>for Growth.
+				</h2>
+			</div>
+			<a href="/services" class="shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors border border-[var(--border-color)] px-5 py-2.5 rounded-full hover:bg-[var(--bg-secondary)]">
+				View All Services
+				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+			</a>
+		</div>
+
+		<!-- Services list -->
+		<div class="border border-[var(--border-color)] rounded-3xl overflow-hidden divide-y divide-[var(--border-color)]">
+			{services.map((service) => (
+				<div class="group grid grid-cols-[3rem_1fr_auto] md:grid-cols-[4rem_220px_1fr_2.5rem] gap-4 md:gap-8 p-6 md:p-7 items-center bg-[var(--bg-primary)]/40 hover:bg-[var(--bg-secondary)] transition-colors duration-300 cursor-default">
+					<span class="text-xs font-mono font-bold text-[var(--text-secondary)] opacity-50">{service.number}</span>
+					<h3 class="text-lg md:text-xl font-bold text-[var(--text-primary)]">{service.title}</h3>
+					<p class="hidden md:block text-[var(--text-secondary)] text-sm leading-relaxed">{service.description}</p>
+					<div class="w-8 h-8 rounded-full border border-[var(--border-color)] flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+						<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ─── Process ───────────────────────────────────────────────────────── -->
+	<section class="border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/30 py-20 md:py-28">
+		<div class="max-w-7xl mx-auto px-4 md:px-6">
+			<div class="mb-16">
+				<p class="text-[0.65rem] font-semibold text-cyan-500 tracking-[0.25em] uppercase mb-4">Our Process</p>
+				<h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-[var(--text-primary)]">How We Work.</h2>
+			</div>
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+				{process.map((p) => (
+					<div class="flex flex-col gap-4 relative">
+						<span class="text-[5rem] md:text-[6rem] font-extrabold leading-none select-none text-[var(--border-color)] dark:text-white/5">{p.step}</span>
+						<h3 class="text-xl font-bold text-[var(--text-primary)] -mt-2">{p.title}</h3>
+						<p class="text-[var(--text-secondary)] text-sm leading-relaxed">{p.desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── Testimonials ──────────────────────────────────────────────────── -->
+	<section class="border-t border-[var(--border-color)] py-20 md:py-28 max-w-7xl mx-auto px-4 md:px-6">
+		<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+			<div>
+				<p class="text-[0.65rem] font-semibold text-cyan-500 tracking-[0.25em] uppercase mb-4">Client Stories</p>
+				<h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-[var(--text-primary)]">What They Say.</h2>
+			</div>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			{testimonials.map((t) => (
+				<div class="group flex flex-col gap-6 p-8 rounded-3xl border border-[var(--border-color)] bg-[var(--bg-primary)]/50 hover:border-cyan-500/25 hover:bg-[var(--bg-secondary)] transition-all duration-300">
+					<svg class="w-7 h-7 text-cyan-500/40" viewBox="0 0 32 32" fill="currentColor">
+						<path d="M10 8C6.686 8 4 10.686 4 14v10h10V14H7c0-1.654 1.346-3 3-3V8zm14 0c-3.314 0-6 2.686-6 6v10h10V14h-7c0-1.654 1.346-3 3-3V8z"/>
+					</svg>
+					<p class="text-[var(--text-primary)] leading-relaxed flex-grow text-[0.95rem]">{t.quote}</p>
+					<div class="flex items-center gap-3 pt-5 border-t border-[var(--border-color)]">
+						<div class="w-9 h-9 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
+							{t.initial}
+						</div>
+						<div>
+							<p class="text-sm font-semibold text-[var(--text-primary)]">{t.author}</p>
+							<p class="text-xs text-[var(--text-secondary)]">{t.role}</p>
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ─── CTA ───────────────────────────────────────────────────────────── -->
+	<section class="max-w-7xl mx-auto px-4 md:px-6 pb-24 md:pb-32">
+		<div class="relative rounded-3xl overflow-hidden border border-[var(--border-color)] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-10 bg-[var(--bg-secondary)]/40">
+			<div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 20% 80%, rgba(6,182,212,0.10) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.08) 0%, transparent 60%);"></div>
+			<div class="relative z-10 max-w-xl">
+				<p class="text-[0.65rem] font-semibold text-cyan-500 tracking-[0.25em] uppercase mb-4">Ready to Grow?</p>
+				<h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] leading-[1.1]">
+					Let's Build Something<br/>
+					<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Remarkable.</span>
+				</h2>
+			</div>
+			<div class="relative z-10 flex flex-col sm:flex-row gap-4 shrink-0">
+				<a href="/contact" class="group px-8 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] font-semibold rounded-full shadow-lg hover:shadow-cyan-500/20 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
+					Start a Project
+					<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+				</a>
+				<a href="/about" class="px-8 py-4 border border-[var(--border-color)] text-[var(--text-primary)] font-medium rounded-full hover:bg-[var(--bg-secondary)] transition-colors flex items-center justify-center">
+					Learn More
+				</a>
+			</div>
+		</div>
+	</section>
+
 </Layout>
+
+<style>
+	.brands-carousel-wrapper {
+		width: 100%;
+		overflow: hidden;
+	}
+	.brands-track {
+		width: max-content;
+		animation: brands-scroll 28s linear infinite;
+		opacity: 0.4;
+		filter: grayscale(1);
+		color: var(--text-primary);
+		transition: opacity 0.4s, filter 0.4s;
+	}
+	.brands-carousel-wrapper:hover .brands-track {
+		opacity: 0.85;
+		filter: grayscale(0);
+		animation-play-state: paused;
+	}
+	@keyframes brands-scroll {
+		0%   { transform: translateX(0); }
+		100% { transform: translateX(-50%); }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.brands-track { animation: none; }
+	}
+</style>
