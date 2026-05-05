@@ -15,26 +15,43 @@
   --color-brand-900: #0f172a;
   --color-brand-950: #020617;
   --font-sans: 'Inter', system-ui, sans-serif;
+  
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
 }
 
 @layer base {
   :root {
-    --bg-primary: var(--color-brand-50);
-    --bg-secondary: #ffffff;
-    --text-primary: var(--color-brand-950);
-    --text-secondary: var(--color-brand-600);
-    --border-color: var(--color-brand-200);
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border-color: #e2e8f0;
   }
 
   .dark {
-    --bg-primary: var(--color-brand-950);
-    --bg-secondary: var(--color-brand-900);
-    --text-primary: var(--color-brand-50);
-    --text-secondary: var(--color-brand-400);
-    --border-color: var(--color-brand-800);
+    --bg-primary: #020617;
+    --bg-secondary: #0f172a;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: rgba(255, 255, 255, 0.1);
   }
 
   body {
-    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased transition-colors duration-300;
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased transition-colors duration-500;
+    background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center top;
   }
 }

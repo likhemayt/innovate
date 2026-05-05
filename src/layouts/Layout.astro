@@ -22,9 +22,8 @@ const { title, description = "Innovate - Corporate Digital Marketing Agency" } =
 		<!-- Google Fonts: Inter -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 		
-		<!-- Dark mode inline script to prevent flash of unstyled content (FOUC) -->
 		<script is:inline>
 			const theme = (() => {
 				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -33,7 +32,7 @@ const { title, description = "Innovate - Corporate Digital Marketing Agency" } =
 				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 					return 'dark';
 				}
-				return 'light';
+				return 'dark'; // Dark mode default for premium feel
 			})();
 			
 			if (theme === 'light') {
@@ -44,34 +43,58 @@ const { title, description = "Innovate - Corporate Digital Marketing Agency" } =
 			window.localStorage.setItem('theme', theme);
 		</script>
 	</head>
-	<body class="min-h-screen flex flex-col">
-		<header class="w-full py-4 px-6 border-b border-[var(--border-color)] bg-[var(--bg-secondary)] sticky top-0 z-50">
-			<div class="max-w-7xl mx-auto flex justify-between items-center">
-				<a href="/" class="text-xl font-bold tracking-tight">Innovate.</a>
-				<nav class="hidden md:flex gap-6 items-center">
-					<a href="/" class="text-sm font-medium hover:opacity-70 transition-opacity">Home</a>
-					<a href="/about" class="text-sm font-medium hover:opacity-70 transition-opacity">About Us</a>
-					<a href="/services" class="text-sm font-medium hover:opacity-70 transition-opacity">Services</a>
-					<a href="/blog" class="text-sm font-medium hover:opacity-70 transition-opacity">Blog</a>
-					<a href="/contact" class="text-sm font-medium hover:opacity-70 transition-opacity">Contact Us</a>
-					<!-- Dark mode toggle component placeholder -->
-					<div id="theme-toggle" class="cursor-pointer p-2 rounded-full bg-[var(--bg-primary)] hover:opacity-80">
-						🌓
-					</div>
-				</nav>
+	<body class="min-h-screen flex flex-col relative selection:bg-cyan-500/30 overflow-x-hidden">
+		<!-- Top glow effect -->
+		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none -z-10 dark:bg-cyan-500/10"></div>
+		
+		<header class="w-full fixed top-0 z-50 transition-all duration-300">
+			<div class="mt-4 mx-auto max-w-7xl px-4">
+				<div class="flex justify-between items-center px-6 py-3 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-primary)]/70 backdrop-blur-xl shadow-sm">
+					<a href="/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						Innovate.
+					</a>
+					<nav class="hidden md:flex gap-8 items-center">
+						<a href="/" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Home</a>
+						<a href="/about" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">About</a>
+						<a href="/services" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Services</a>
+						<a href="/blog" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Blog</a>
+						
+						<div class="flex items-center gap-4 border-l border-[var(--border-color)] pl-6">
+							<a href="/contact" class="text-sm font-medium px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-full hover:scale-105 transition-transform">
+								Contact Us
+							</a>
+							<button id="theme-toggle" class="cursor-pointer p-2 rounded-full hover:bg-[var(--border-color)] transition-colors" aria-label="Toggle theme">
+								<svg id="moon-icon" class="w-5 h-5 hidden dark:block text-[var(--text-secondary)] hover:text-[var(--text-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+								<svg id="sun-icon" class="w-5 h-5 block dark:hidden text-[var(--text-secondary)] hover:text-[var(--text-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+							</button>
+						</div>
+					</nav>
+				</div>
 			</div>
 		</header>
-		<main class="flex-grow">
+		
+		<main class="flex-grow pt-28">
 			<slot />
 		</main>
-		<footer class="py-8 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-center text-sm text-[var(--text-secondary)] mt-12">
-			<div class="max-w-7xl mx-auto">
-				&copy; {new Date().getFullYear()} Innovate Digital Marketing Agency. All rights reserved.
+		
+		<footer class="py-12 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)]/50 mt-20 backdrop-blur-sm relative z-10">
+			<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+				<div class="flex items-center gap-2">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+					<span class="font-bold tracking-tight">Innovate.</span>
+				</div>
+				<p class="text-sm text-[var(--text-secondary)]">
+					&copy; {new Date().getFullYear()} Innovate Digital Marketing. All rights reserved.
+				</p>
 			</div>
 		</footer>
 
 		<script is:inline>
-			// Basic theme toggle logic
 			const toggleBtn = document.getElementById('theme-toggle');
 			toggleBtn?.addEventListener('click', () => {
 				const isDark = document.documentElement.classList.contains('dark');
