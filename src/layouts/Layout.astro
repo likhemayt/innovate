@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Innovate - Corporate Digital Marketing Agency" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Innovate</title>
+		
+		<!-- Google Fonts: Inter -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		
+		<!-- Dark mode inline script to prevent flash of unstyled content (FOUC) -->
+		<script is:inline>
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme');
+				}
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				}
+				return 'light';
+			})();
+			
+			if (theme === 'light') {
+				document.documentElement.classList.remove('dark');
+			} else {
+				document.documentElement.classList.add('dark');
+			}
+			window.localStorage.setItem('theme', theme);
+		</script>
+	</head>
+	<body class="min-h-screen flex flex-col">
+		<header class="w-full py-4 px-6 border-b border-[var(--border-color)] bg-[var(--bg-secondary)] sticky top-0 z-50">
+			<div class="max-w-7xl mx-auto flex justify-between items-center">
+				<a href="/" class="text-xl font-bold tracking-tight">Innovate.</a>
+				<nav class="hidden md:flex gap-6 items-center">
+					<a href="/" class="text-sm font-medium hover:opacity-70 transition-opacity">Home</a>
+					<a href="/about" class="text-sm font-medium hover:opacity-70 transition-opacity">About Us</a>
+					<a href="/services" class="text-sm font-medium hover:opacity-70 transition-opacity">Services</a>
+					<a href="/blog" class="text-sm font-medium hover:opacity-70 transition-opacity">Blog</a>
+					<a href="/contact" class="text-sm font-medium hover:opacity-70 transition-opacity">Contact Us</a>
+					<!-- Dark mode toggle component placeholder -->
+					<div id="theme-toggle" class="cursor-pointer p-2 rounded-full bg-[var(--bg-primary)] hover:opacity-80">
+						🌓
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<footer class="py-8 px-6 border-t border-[var(--border-color)] bg-[var(--bg-secondary)] text-center text-sm text-[var(--text-secondary)] mt-12">
+			<div class="max-w-7xl mx-auto">
+				&copy; {new Date().getFullYear()} Innovate Digital Marketing Agency. All rights reserved.
+			</div>
+		</footer>
+
+		<script is:inline>
+			// Basic theme toggle logic
+			const toggleBtn = document.getElementById('theme-toggle');
+			toggleBtn?.addEventListener('click', () => {
+				const isDark = document.documentElement.classList.contains('dark');
+				if (isDark) {
+					document.documentElement.classList.remove('dark');
+					localStorage.setItem('theme', 'light');
+				} else {
+					document.documentElement.classList.add('dark');
+					localStorage.setItem('theme', 'dark');
+				}
+			});
+		</script>
+	</body>
+</html>
