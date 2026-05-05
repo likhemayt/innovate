@@ -22,7 +22,7 @@ const { title, description = "Innovate - Corporate Digital Marketing Agency" } =
 		<!-- Google Fonts: Inter -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
 		
 		<script is:inline>
 			const theme = (() => {
@@ -59,16 +59,16 @@ const { title, description = "Innovate - Corporate Digital Marketing Agency" } =
 					
 					<!-- Desktop Nav -->
 					<nav class="hidden md:flex gap-8 items-center">
-						<a href="/" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Home</a>
-						<a href="/about" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">About</a>
-						<a href="/services" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Services</a>
-						<a href="/blog" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">Blog</a>
+						<a href="/" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]">Home</a>
+						<a href="/about" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]">About</a>
+						<a href="/services" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]">Services</a>
+						<a href="/blog" class="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]">Blog</a>
 						
 						<div class="flex items-center gap-4 border-l border-[var(--border-color)] pl-6">
-							<a href="/contact" class="text-sm font-medium px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-full hover:scale-105 transition-transform">
+							<a href="/contact" class="text-sm font-medium px-4 py-2 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-full hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]">
 								Contact Us
 							</a>
-							<button class="theme-toggle cursor-pointer p-2 rounded-full hover:bg-[var(--border-color)] transition-colors" aria-label="Toggle theme">
+							<button class="theme-toggle cursor-pointer p-2 rounded-full hover:bg-[var(--border-color)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500" aria-label="Toggle theme">
 								<svg class="w-5 h-5 hidden dark:block text-[var(--text-secondary)] hover:text-[var(--text-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
 								<svg class="w-5 h-5 block dark:hidden text-[var(--text-secondary)] hover:text-[var(--text-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
 							</button>
@@ -77,11 +77,11 @@ const { title, description = "Innovate - Corporate Digital Marketing Agency" } =
 
 					<!-- Mobile Controls (Toggle + Menu Button) -->
 					<div class="flex items-center gap-2 md:hidden">
-						<button class="theme-toggle cursor-pointer p-2 rounded-full hover:bg-[var(--border-color)] transition-colors" aria-label="Toggle theme">
+						<button class="theme-toggle cursor-pointer p-2 rounded-full hover:bg-[var(--border-color)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500" aria-label="Toggle theme">
 							<svg class="w-5 h-5 hidden dark:block text-[var(--text-secondary)] hover:text-[var(--text-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
 							<svg class="w-5 h-5 block dark:hidden text-[var(--text-secondary)] hover:text-[var(--text-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
 						</button>
-						<button id="mobile-menu-btn" class="p-2 text-[var(--text-primary)] focus:outline-none hover:bg-[var(--border-color)] rounded-full transition-colors">
+						<button id="mobile-menu-btn" class="p-2 text-[var(--text-primary)] hover:bg-[var(--border-color)] rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500">
 							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
 						</button>
 					</div>
