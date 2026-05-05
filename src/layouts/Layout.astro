@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import SmoothScroll from '../components/animations/SmoothScroll';
 import CustomCursor from '../components/animations/CustomCursor';
+import Navbar from '../components/Navbar';
 
 interface Props {
 	title: string;
@@ -11,7 +12,12 @@ interface Props {
 
 const { title, description = "Premium Corporate Agency" } = Astro.props;
 
-import Navbar from '../components/Navbar';
+const navItems = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Services', href: '/services' },
+	{ name: 'About', href: '/about' },
+	{ name: 'Work', href: '/work' },
+];
 ---
 
 <!doctype html>
@@ -30,9 +36,9 @@ import Navbar from '../components/Navbar';
 	</head>
 	<body class="flex flex-col min-h-screen">
 		<CustomCursor client:load />
+		<Navbar client:load />
+		
 		<SmoothScroll client:load>
-			<Navbar client:load />
-
 			<!-- Main Content -->
 			<main class="flex-grow pt-20">
 				<slot />
@@ -77,4 +83,3 @@ import Navbar from '../components/Navbar';
 		</SmoothScroll>
 	</body>
 </html>
-

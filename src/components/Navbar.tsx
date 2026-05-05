@@ -20,19 +20,26 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    console.log('Toggle menu clicked, current state:', isOpen);
+    setIsOpen(!isOpen);
+  };
+
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      console.log('Body overflow hidden');
     } else {
       document.body.style.overflow = 'unset';
+      console.log('Body overflow restored');
     }
   }, [isOpen]);
 
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
           scrolled ? 'py-4' : 'py-6'
         }`}
       >
@@ -68,7 +75,7 @@ const Navbar: React.FC = () => {
                 Get in touch
               </a>
               <button 
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={toggleMenu}
                 className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none z-50"
                 aria-label="Toggle Menu"
               >
@@ -98,7 +105,7 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-white md:hidden pt-32 px-10"
+            className="fixed inset-0 z-[90] bg-white md:hidden pt-32 px-10"
           >
             <nav className="flex flex-col gap-8">
               {navItems.map((item, index) => (
