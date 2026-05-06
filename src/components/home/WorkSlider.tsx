@@ -108,7 +108,10 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
           <div 
             key={item.id}
             ref={(el) => (cardsRef.current[i] = el)}
-            className={`group relative w-[85vw] md:w-[70vw] lg:w-[65vw] aspect-[4/3] md:aspect-[16/9] flex-shrink-0 overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-neutral-900 shadow-2xl transition-all duration-1000 ease-in-out ${currentIndex === i ? 'opacity-100 scale-100' : 'opacity-20 scale-[0.9] blur-[2px]'}`}
+          <div 
+            key={item.id} 
+            ref={(el) => (cardsRef.current[i] = el)}
+            className={`group relative w-[85vw] md:w-[70vw] lg:w-[65vw] aspect-[4/5] md:aspect-[3/2] lg:aspect-[16/9] flex-shrink-0 overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-neutral-900 shadow-2xl transition-all duration-1000 ease-in-out ${currentIndex === i ? 'opacity-100 scale-100' : 'opacity-20 scale-[0.9] blur-[2px]'}`}
           >
             <div className="absolute inset-0 overflow-hidden">
               <img 
@@ -119,10 +122,10 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-700" />
             </div>
 
-            <div className={`card-content absolute inset-0 p-6 md:p-12 lg:p-20 flex flex-col justify-end transition-all duration-700 delay-300 ${currentIndex === i ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <span className="text-white/60 text-[10px] md:text-sm font-bold uppercase tracking-[0.4em] mb-4">{item.category}</span>
-              <h3 className="text-white text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter mb-4 md:mb-6 leading-[0.9]">{item.title}</h3>
-              <p className="text-white/40 text-base md:text-lg lg:text-xl max-w-xl line-clamp-2 mb-6 md:mb-10 group-hover:text-white/80 transition-colors leading-relaxed">{item.description}</p>
+            <div className={`card-content absolute inset-0 p-8 md:p-12 lg:p-20 flex flex-col justify-end transition-all duration-700 delay-300 ${currentIndex === i ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <span className="text-white/60 text-[10px] md:text-sm font-bold uppercase tracking-[0.4em] mb-3 md:mb-4">{item.category}</span>
+              <h3 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter mb-4 md:mb-6 leading-[0.9]">{item.title}</h3>
+              <p className="text-white/40 text-sm md:text-lg lg:text-xl max-w-xl line-clamp-2 mb-6 md:mb-10 group-hover:text-white/80 transition-colors leading-relaxed">{item.description}</p>
               
               <div className="flex items-center gap-6 group/btn cursor-pointer w-fit">
                 <div className="h-14 w-14 md:h-20 md:w-20 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-black transition-all duration-500">
