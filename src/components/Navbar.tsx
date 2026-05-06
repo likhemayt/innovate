@@ -39,11 +39,11 @@ const Navbar: React.FC = () => {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          scrolled ? 'py-4' : 'py-6'
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 pointer-events-none ${
+          scrolled ? 'py-4' : 'py-8'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 pointer-events-auto">
           <div className={`glass-nav rounded-full px-6 md:px-10 h-16 md:h-20 flex items-center justify-between transition-all duration-500 ${
             scrolled ? 'shadow-lg border-neutral-200/50' : 'border-transparent'
           }`}>

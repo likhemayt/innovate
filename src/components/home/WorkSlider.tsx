@@ -75,11 +75,11 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-black py-12 md:py-32 overflow-hidden min-h-[85vh] md:h-screen flex flex-col justify-center">
-      <div className="px-6 md:px-24 mb-12 md:mb-20">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
-          <div className="max-w-2xl">
-            <h2 className="text-white text-5xl md:text-9xl font-black tracking-tighter uppercase leading-[0.8] mb-8">{title}</h2>
+    <section ref={sectionRef} className="bg-black pt-40 pb-20 md:pt-60 md:pb-32 overflow-hidden min-h-screen flex flex-col justify-center">
+      <div className="px-6 md:px-24 mb-16 md:mb-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
+          <div className="max-w-3xl">
+            <h2 className="text-white text-5xl md:text-8xl lg:text-[11rem] font-black tracking-tighter uppercase leading-[0.75] mb-12">{title}</h2>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-3">
                 <span className="text-white text-xl font-bold tracking-tighter">{(currentIndex + 1).toString().padStart(2, '0')}</span>
