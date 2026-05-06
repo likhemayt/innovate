@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FadeUp from '../components/animations/FadeUp';
-import GSAPCarousel from '../components/home/GSAPCarousel';
+import WorkSlider from '../components/home/WorkSlider';
+import TestimonialSlider from '../components/home/TestimonialSlider';
 
 const caseStudies = [
   {
@@ -140,11 +141,11 @@ const faqs = [
     </section>
   ))}
 
-  <!-- GSAP Carousel: Featured Case Studies -->
-  <GSAPCarousel client:load items={caseStudies} title="Featured Work" />
+  <!-- Featured Case Studies -->
+  <WorkSlider client:load items={caseStudies} title="Featured Work" />
 
-  <!-- GSAP Carousel: Testimonials -->
-  <GSAPCarousel client:load items={testimonials} title="What Clients Say" />
+  <!-- Testimonials -->
+  <TestimonialSlider client:visible items={testimonials} title="What Clients Say" />
 
   <!-- FAQ Section -->
   <section class="py-32 px-6 md:px-24 bg-[#fafafa]">
