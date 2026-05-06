@@ -75,7 +75,7 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-black py-20 md:py-32 overflow-hidden h-screen flex flex-col justify-center">
+    <section ref={sectionRef} className="bg-black py-12 md:py-32 overflow-hidden min-h-[85vh] md:h-screen flex flex-col justify-center">
       <div className="px-6 md:px-24 mb-12 md:mb-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
           <div className="max-w-2xl">
