@@ -59,27 +59,12 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
   const nextSlide = () => goToIndex(currentIndex + 1);
   const prevSlide = () => goToIndex(currentIndex - 1);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      // Pinning the section briefly for impact
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        pin: true,
-        start: "top top",
-        end: "+=100%",
-        pinSpacing: true,
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="bg-black pt-40 pb-20 md:pt-60 md:pb-32 overflow-hidden min-h-screen flex flex-col justify-center">
+    <section ref={sectionRef} className="bg-black pt-32 pb-32 overflow-hidden flex flex-col justify-center">
       <div className="px-6 md:px-24 mb-16 md:mb-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
-          <div className="max-w-3xl">
-            <h2 className="text-white text-5xl md:text-8xl lg:text-[11rem] font-black tracking-tighter uppercase leading-[0.75] mb-12">{title}</h2>
+          <div className="max-w-4xl">
+            <h2 className="text-white text-5xl md:text-8xl lg:text-[9rem] font-black tracking-tighter uppercase leading-[0.8] mb-12">{title}</h2>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-3">
                 <span className="text-white text-xl font-bold tracking-tighter">{(currentIndex + 1).toString().padStart(2, '0')}</span>
@@ -123,7 +108,7 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
           <div 
             key={item.id}
             ref={(el) => (cardsRef.current[i] = el)}
-            className={`group relative w-[85vw] md:w-[70vw] lg:w-[60vw] aspect-[16/10] md:aspect-[21/10] flex-shrink-0 overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-neutral-900 shadow-2xl transition-all duration-1000 ease-in-out ${currentIndex === i ? 'opacity-100 scale-100' : 'opacity-20 scale-[0.9] blur-[2px]'}`}
+            className={`group relative w-[85vw] md:w-[70vw] lg:w-[65vw] aspect-[16/10] md:aspect-[18/10] flex-shrink-0 overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-neutral-900 shadow-2xl transition-all duration-1000 ease-in-out ${currentIndex === i ? 'opacity-100 scale-100' : 'opacity-20 scale-[0.9] blur-[2px]'}`}
           >
             <div className="absolute inset-0 overflow-hidden">
               <img 
@@ -136,7 +121,7 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
 
             <div className={`card-content absolute inset-0 p-8 md:p-20 flex flex-col justify-end transition-all duration-700 delay-300 ${currentIndex === i ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <span className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4">{item.category}</span>
-              <h3 className="text-white text-4xl md:text-8xl font-bold tracking-tighter mb-6 leading-none">{item.title}</h3>
+              <h3 className="text-white text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter mb-6 leading-none">{item.title}</h3>
               <p className="text-white/40 text-base md:text-xl max-w-xl line-clamp-2 mb-10 group-hover:text-white/80 transition-colors leading-relaxed">{item.description}</p>
               
               <div className="flex items-center gap-6 group/btn cursor-pointer w-fit">
@@ -148,7 +133,6 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
             </div>
           </div>
         ))}
-        {/* Spacer for layout */}
         <div className="w-[10vw] md:w-[20vw] flex-shrink-0" />
       </div>
     </section>
