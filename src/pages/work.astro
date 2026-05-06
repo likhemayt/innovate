@@ -56,8 +56,8 @@ const projects = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
       {projects.map((project) => (
         <FadeUp client:visible className="group cursor-pointer">
-          <div class="aspect-[3/4] md:aspect-[16/10] overflow-hidden rounded-3xl bg-neutral-100 mb-8">
-             <img src={project.image} alt={project.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+          <div class="aspect-[3/4] md:aspect-[16/10] overflow-hidden rounded-3xl bg-neutral-100 mb-8 relative">
+             <img src={project.image} alt={project.title} class="w-full h-full object-cover scale-110 transition-transform duration-1000 group-hover:scale-125" data-parallax="1.5" />
           </div>
           <div class="flex items-end justify-between">
             <div>

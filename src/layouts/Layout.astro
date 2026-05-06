@@ -80,6 +80,34 @@ const navItems = [
 					</div>
 				</div>
 			</footer>
+			<!-- Global GSAP Scripts -->
+			<script>
+				import { gsap } from 'gsap';
+				import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+
+				gsap.registerPlugin(ScrollTrigger);
+
+				// Initialize Parallax
+				const initParallax = () => {
+					const images = document.querySelectorAll('[data-parallax]');
+					images.forEach((img) => {
+						const speed = img.getAttribute('data-parallax') || "0.2";
+						gsap.to(img, {
+							yPercent: 10 * parseFloat(speed),
+							ease: "none",
+							scrollTrigger: {
+								trigger: img,
+								start: "top bottom",
+								end: "bottom top",
+								scrub: true
+							}
+						});
+					});
+				};
+
+				// Run on load and after transitions
+				document.addEventListener('astro:page-load', initParallax);
+			</script>
 		</SmoothScroll>
 	</body>
 </html>

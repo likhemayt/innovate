@@ -23,6 +23,7 @@ const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children }) => 
     });
 
     lenisRef.current = lenis;
+    (window as any).lenis = lenis;
 
     // Connect Lenis to ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);

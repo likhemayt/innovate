@@ -27,12 +27,15 @@ const Navbar: React.FC = () => {
 
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
+    // Find the global lenis instance if it exists
+    const lenis = (window as any).lenis;
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      console.log('Body overflow hidden');
+      if (lenis) lenis.stop();
     } else {
       document.body.style.overflow = 'unset';
-      console.log('Body overflow restored');
+      if (lenis) lenis.start();
     }
   }, [isOpen]);
 
