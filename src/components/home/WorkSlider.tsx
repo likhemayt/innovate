@@ -119,9 +119,9 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-700" />
             </div>
 
-            <div className={`card-content absolute inset-0 p-8 md:p-20 flex flex-col justify-end transition-all duration-700 delay-300 ${currentIndex === i ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className={`card-content absolute inset-0 p-8 md:p-12 lg:p-20 flex flex-col justify-end transition-all duration-700 delay-300 ${currentIndex === i ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               <span className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4">{item.category}</span>
-              <h3 className="text-white text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter mb-6 leading-none">{item.title}</h3>
+              <h3 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 leading-[0.9]">{item.title}</h3>
               <p className="text-white/40 text-base md:text-xl max-w-xl line-clamp-2 mb-10 group-hover:text-white/80 transition-colors leading-relaxed">{item.description}</p>
               
               <div className="flex items-center gap-6 group/btn cursor-pointer w-fit">
