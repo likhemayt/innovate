@@ -13,6 +13,7 @@ interface WorkItem {
   description: string;
   image: string;
   category: string;
+  link?: string;
 }
 
 interface WorkSliderProps {
@@ -129,12 +130,12 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
                 <h3 className="text-white text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter mb-6 leading-[0.9]">{item.title}</h3>
                 <p className="text-white/70 text-base md:text-lg lg:text-xl max-w-xl line-clamp-3 mb-10 group-hover:text-white transition-colors leading-relaxed">{item.description}</p>
                 
-                <div className="flex items-center gap-6 group/btn cursor-pointer w-fit">
+                <a href={item.link || "/work"} className="flex items-center gap-6 group/btn cursor-pointer w-fit">
                   <div className="h-14 w-14 md:h-20 md:w-20 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-black transition-all duration-500">
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45 md:w-10 md:h-10 group-hover/btn:rotate-0 transition-transform duration-500"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                   </div>
                   <span className="text-white font-bold uppercase tracking-[0.3em] text-xs md:text-sm">View Case Study</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>
