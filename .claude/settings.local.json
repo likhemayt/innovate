@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:innovate-proto.vercel.app)",
+      "Bash(python C:/Users/PC1/.claude/skills/seo/scripts/drift_history.py \"https://innovate-proto.vercel.app/\")",
+      "Bash(curl *)",
+      "Bash(pip install *)",
+      "Bash(playwright install *)",
+      "Bash(grep -v '^\\\\s*$')",
+      "Bash(python *)",
+      "Bash(python3 -m playwright install chromium -q)",
+      "WebSearch",
+      "Bash(python3 *)",
+      "WebFetch(domain:clay.global)",
+      "Bash(grep -o '<h1[^>]*>.\\\\{0,200\\\\}</h1>' /tmp/innovate_home.html)",
+      "Bash(grep -o '<h2[^>]*>.\\\\{0,200\\\\}</h2>' /tmp/innovate_home.html)",
+      "WebFetch(domain:thebranx.com)",
+      "WebFetch(domain:coalitiontechnologies.com)",
+      "WebFetch(domain:nogood.io)",
+      "Bash(grep -o '<body[^>]*>.\\\\{0,2000\\\\}' /tmp/innovate_home.html)",
+      "WebFetch(domain:www.wavespace.agency)",
+      "WebFetch(domain:www.310creative.com)",
+      "Bash(grep -o '<h1[^>]*>.\\\\{0,500\\\\}' /tmp/innovate_home.html)",
+      "Bash(grep -o 'text-\\\\[clamp\\(.\\\\{0,50\\\\}\\\\|text-9xl\\\\|text-8xl\\\\|text-7xl' /tmp/innovate_home.html)",
+      "Bash(grep -o '<h1[^>]*>.\\\\{0,300\\\\}' /tmp/innovate_services.html)",
+      "Bash(grep -o '<h2[^>]*>.\\\\{0,200\\\\}</h2>' /tmp/innovate_services.html)",
+      "Bash(grep -o '<h1 class=\"text-\\\\[clamp\\(3.5rem,11vw,14rem\\)\\\\][^>]*>.\\\\{0,500\\\\}' /tmp/innovate_home.html)",
+      "Bash(grep -o '<h1[^>]*>.\\\\{0,300\\\\}' /tmp/innovate_about.html)",
+      "Bash(grep -o '<h2[^>]*>.\\\\{0,200\\\\}</h2>' /tmp/innovate_about.html)",
+      "Bash(grep -o '<h1[^>]*>.\\\\{0,300\\\\}' /tmp/innovate_work.html)",
+      "Bash(echo \"EXIT:$?\")",
+      "WebFetch(domain:www.googleapis.com)",
+      "WebFetch(domain:pagespeed.web.dev)",
+      "Bash(sort -u echo \"---\" curl -s \"https://innovate-proto.vercel.app/_astro/TestimonialSlider.CjFVAEoc.js\")",
+      "Bash(bc)"
+    ]
+  }
+}

@@ -137,9 +137,9 @@ const Navbar: React.FC = () => {
               <div>
                 <p className="text-neutral-400 text-sm font-medium mb-4 uppercase tracking-widest">Connect</p>
                 <div className="flex gap-6">
-                  <a href="#" className="font-bold text-lg">LinkedIn</a>
-                  <a href="#" className="font-bold text-lg">Twitter</a>
-                  <a href="#" className="font-bold text-lg">Instagram</a>
+                  <a href="https://linkedin.com/company/innovate" className="font-bold text-lg">LinkedIn</a>
+                  <a href="https://twitter.com/innovate" className="font-bold text-lg">Twitter</a>
+                  <a href="https://instagram.com/innovate" className="font-bold text-lg">Instagram</a>
                 </div>
               </div>
 

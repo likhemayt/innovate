@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — Innovate Digital Agency</title>
+<style>
+  /* ─── Reset & Base ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    color: #1a1a2e;
+    background: #ffffff;
+    line-height: 1.6;
+  }
+
+  /* ─── Brand Colors ─── */
+  :root {
+    --navy:   #1e3a5f;
+    --gray:   #4a5568;
+    --gold:   #b8860b;
+    --green:  #2d6a4f;
+    --amber:  #d4740e;
+    --red:    #c53030;
+    --dark:   #1a1a2e;
+    --cream:  #faf9f7;
+    --border: #d6d3cc;
+    --muted:  #6b7280;
+  }
+
+  /* ─── Print ─── */
+  @media print {
+    .no-print { display: none !important; }
+    .section { page-break-inside: avoid; }
+    h2 { page-break-before: always; }
+    h2:first-of-type { page-break-before: avoid; }
+    body { font-size: 9.5pt; }
+    .title-page { page-break-after: always; }
+    @page { margin: 15mm 18mm; }
+  }
+
+  /* ─── Title Page ─── */
+  .title-page {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d1b2e 100%);
+    color: #fff;
+    padding: 60px 50px;
+    min-height: 280px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+  }
+  .title-page .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 9pt;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-family: Arial, sans-serif;
+  }
+  .title-page h1 {
+    font-size: 26pt;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    border: none;
+  }
+  .title-page .subtitle {
+    font-size: 12pt;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 30px;
+  }
+  .score-box {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 16px 28px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .score-number {
+    font-size: 38pt;
+    font-weight: bold;
+    color: #ff6b6b;
+    line-height: 1;
+  }
+  .score-number span { font-size: 18pt; color: rgba(255,255,255,0.5); }
+  .score-label {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    font-family: Arial, sans-serif;
+  }
+  .title-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .title-meta span {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.65);
+    font-family: Arial, sans-serif;
+  }
+  .title-meta span::before { content: "● "; color: var(--gold); }
+
+  /* ─── Page Layout ─── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 30px 60px; }
+
+  /* ─── Table of Contents ─── */
+  .toc {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+  }
+  .toc h2 { border-bottom: none; font-size: 13pt; margin-bottom: 14px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 6px; font-family: Arial, sans-serif; font-size: 10pt; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc .score-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+    font-weight: bold;
+    margin-left: 8px;
+  }
+  .score-good { background: #d1fae5; color: var(--green); }
+  .score-warn { background: #fef3c7; color: var(--amber); }
+  .score-bad  { background: #fee2e2; color: var(--red);   }
+
+  /* ─── Headings ─── */
+  h2 {
+    font-size: 15pt;
+    color: var(--navy);
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 8px;
+    margin: 36px 0 18px;
+  }
+  h3 { font-size: 12pt; color: var(--gray); margin: 20px 0 10px; }
+  h4 { font-size: 11pt; color: var(--dark); margin: 14px 0 6px; }
+
+  /* ─── Scorecard Grid ─── */
+  .scorecard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+  }
+  .score-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .score-card .val {
+    font-size: 22pt;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .score-card .lbl {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+  }
+  .score-card .sub {
+    font-size: 8pt;
+    color: var(--muted);
+    margin-top: 4px;
+    font-family: Arial, sans-serif;
+  }
+  .val-red   { color: var(--red);   }
+  .val-amber { color: var(--amber); }
+  .val-green { color: var(--green); }
+  .val-navy  { color: var(--navy);  }
+
+  /* ─── Tables ─── */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-family: Arial, sans-serif; font-size: 9.5pt; }
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 8px 10px; text-align: left; font-weight: 600; }
+  tbody tr:nth-child(even) { background: var(--cream); }
+  tbody td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .tag-critical { color: var(--red);   font-weight: bold; font-family: Arial, sans-serif; font-size: 8.5pt; }
+  .tag-high     { color: var(--amber); font-weight: bold; font-family: Arial, sans-serif; font-size: 8.5pt; }
+  .tag-medium   { color: var(--navy);  font-weight: bold; font-family: Arial, sans-serif; font-size: 8.5pt; }
+  .tag-low      { color: var(--muted); font-weight: bold; font-family: Arial, sans-serif; font-size: 8.5pt; }
+
+  /* ─── Priority Action Items ─── */
+  .action-item {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-left: 4px solid var(--border);
+  }
+  .action-item.critical { border-left-color: var(--red);   background: #fef2f2; }
+  .action-item.high     { border-left-color: var(--amber); background: #fffbeb; }
+  .action-item.medium   { border-left-color: var(--navy);  background: #eff6ff; }
+  .action-item.low      { border-left-color: #94a3b8; }
+  .action-item h4 { margin-top: 0; margin-bottom: 6px; }
+  .action-item p  { margin: 0; font-size: 9.5pt; color: #374151; font-family: Arial, sans-serif; }
+  .effort {
+    font-size: 8pt;
+    color: var(--muted);
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+    float: right;
+    margin-top: 2px;
+  }
+
+  /* ─── Priority Tags ─── */
+  .priority-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 8.5pt;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-right: 6px;
+  }
+  .priority-critical { background: #fee2e2; color: var(--red);   }
+  .priority-high     { background: #fef3c7; color: var(--amber); }
+  .priority-medium   { background: #dbeafe; color: #1d4ed8;      }
+  .priority-low      { background: #f3f4f6; color: #4b5563;      }
+
+  /* ─── Status Badges ─── */
+  .status {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 8pt;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+  }
+  .status-pass { background: #d1fae5; color: var(--green); }
+  .status-warn { background: #fef3c7; color: var(--amber); }
+  .status-fail { background: #fee2e2; color: var(--red);   }
+
+  /* ─── Code blocks ─── */
+  pre, code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 8.5pt;
+    background: #f8f8f8;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  pre { padding: 12px 14px; overflow-x: auto; margin: 10px 0; }
+  code { padding: 1px 5px; }
+
+  /* ─── Info / Critical Boxes ─── */
+  .info-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-family: Arial, sans-serif;
+    font-size: 9.5pt;
+    color: #1e3a5f;
+  }
+  .critical-box {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-family: Arial, sans-serif;
+    font-size: 9.5pt;
+    color: var(--red);
+  }
+  .success-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-family: Arial, sans-serif;
+    font-size: 9.5pt;
+    color: var(--green);
+  }
+
+  /* ─── Section ─── */
+  .section { margin-bottom: 40px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .section-score {
+    font-size: 18pt;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+  }
+
+  /* ─── Progress Bar ─── */
+  .progress-row { margin: 6px 0; font-family: Arial, sans-serif; font-size: 9pt; }
+  .progress-label { display: inline-block; width: 160px; color: var(--gray); }
+  .progress-bar-bg {
+    display: inline-block;
+    width: 300px;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: block;
+  }
+  .progress-val { display: inline-block; font-weight: bold; }
+
+  /* ─── Footer ─── */
+  .report-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 8.5pt;
+    margin-top: 50px;
+    border-radius: 4px;
+  }
+  .report-footer a { color: rgba(255,255,255,0.9); }
+
+  /* ─── Print Button ─── */
+  .print-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .print-btn:hover { background: #152d4d; }
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  ul, ol { padding-left: 20px; margin: 8px 0; }
+  li { margin-bottom: 4px; font-family: Arial, sans-serif; font-size: 9.5pt; }
+  p { margin: 8px 0; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">Print / Save as PDF</button>
+
+<div class="container">
+
+<!-- ═══════════════════ TITLE PAGE ═══════════════════ -->
+<div class="title-page">
+  <div class="badge">Full SEO Audit Report</div>
+  <h1>innovate-proto.vercel.app</h1>
+  <div class="subtitle">Innovate Digital Agency &mdash; B2B Creative &amp; Web</div>
+  <div class="score-box">
+    <div class="score-number">31<span>/100</span></div>
+    <div class="score-label">SEO Health Score</div>
+  </div>
+  <div class="title-meta">
+    <span>Audit Date: 7 May 2026</span>
+    <span>Stack: Astro v6.2.2 (SSR)</span>
+    <span>Host: Vercel Singapore</span>
+    <span>Pages Audited: 5</span>
+    <span>Subagents: 9</span>
+    <span>Prepared by: Claude SEO Skill</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ TABLE OF CONTENTS ═══════════════════ -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#executive">Executive Summary &amp; Health Score</a></li>
+    <li><a href="#technical">Technical SEO</a> <span class="score-badge score-bad">41/100</span></li>
+    <li><a href="#content">Content Quality &amp; E-E-A-T</a> <span class="score-badge score-bad">34/100</span></li>
+    <li><a href="#onpage">On-Page SEO</a> <span class="score-badge score-bad">28/100</span></li>
+    <li><a href="#schema">Schema &amp; Structured Data</a> <span class="score-badge score-bad">0/100</span></li>
+    <li><a href="#performance">Core Web Vitals &amp; Performance</a> <span class="score-badge score-warn">53/100</span></li>
+    <li><a href="#geo">AI Search Readiness (GEO)</a> <span class="score-badge score-bad">21/100</span></li>
+    <li><a href="#sxo">Search Experience Optimization (SXO)</a> <span class="score-badge score-bad">38/100</span></li>
+    <li><a href="#backlinks">Backlinks &amp; Domain Authority</a></li>
+    <li><a href="#sitemap">Sitemap &amp; Crawl Architecture</a></li>
+    <li><a href="#actionplan">Prioritized Action Plan</a></li>
+    <li><a href="#schema-code">Ready-to-Use Schema JSON-LD</a></li>
+  </ol>
+</div>
+
+<!-- ═══════════════════ 1. EXECUTIVE SUMMARY ═══════════════════ -->
+<div class="section" id="executive">
+  <div class="section-header">
+    <h2>1. Executive Summary</h2>
+  </div>
+
+  <p>Innovate is a B2B digital creative agency (Astro v6.2.2, Vercel) targeting tech startups, financial services, and luxury brands. The full audit covered 5 pages across 9 specialist subagents. The site scores <strong>31/100</strong> — in the Critical range, primarily because the entire metadata and structured data layer is missing, not because the technical foundation is broken.</p>
+
+  <div class="critical-box">
+    <strong>Top 3 Critical Issues:</strong>
+    <ol style="margin-top:8px;">
+      <li>No <code>robots.txt</code> (404) &mdash; AI crawlers and Googlebot operate with zero directives</li>
+      <li>No canonical tags on any page &mdash; Vercel preview URLs may split crawl equity</li>
+      <li>Zero structured data sitewide &mdash; no Knowledge Panel eligibility, no rich results</li>
+    </ol>
+  </div>
+
+  <div class="success-box">
+    <strong>What's working well:</strong>
+    <ul style="margin-top:8px;">
+      <li>Astro SSR: all content in HTML at crawl time — Googlebot doesn't need JavaScript</li>
+      <li>HTTPS enforced with strong HSTS (2-year max-age, includeSubDomains, preload)</li>
+      <li>Clean URL structure — all pages accessible within 1 click from home</li>
+      <li>Good TTFB (~219ms) from Vercel Singapore CDN edge</li>
+    </ul>
+  </div>
+
+  <h3>SEO Health Score Breakdown</h3>
+  <div class="scorecard">
+    <div class="score-card">
+      <div class="val val-red">31</div>
+      <div class="lbl">Overall Health</div>
+      <div class="sub">/100</div>
+    </div>
+    <div class="score-card">
+      <div class="val val-red">41</div>
+      <div class="lbl">Technical SEO</div>
+      <div class="sub">22% weight</div>
+    </div>
+    <div class="score-card">
+      <div class="val val-red">34</div>
+      <div class="lbl">Content Quality</div>
+      <div class="sub">23% weight</div>
+    </div>
+    <div class="score-card">
+      <div class="val val-red">28</div>
+      <div class="lbl">On-Page SEO</div>
+      <div class="sub">20% weight</div>
+    </div>
+    <div class="score-card">
+      <div class="val val-red">0</div>
+      <div class="lbl">Schema</div>
+      <div class="sub">10% weight</div>
+    </div>
+    <div class="score-card">
+      <div class="val val-amber">53</div>
+      <div class="lbl">Performance</div>
+      <div class="sub">10% weight</div>
+    </div>
+    <div class="score-card">
+      <div class="val val-red">21</div>
+      <div class="lbl">AI Search</div>
+      <div class="sub">10% weight</div>
+    </div>
+    <div class="score-card">
+      <div class="val val-amber">25</div>
+      <div class="lbl">Images</div>
+      <div class="sub">5% weight</div>
+    </div>
+  </div>
+
+  <h3>Score Breakdown by Category</h3>
+  <div class="progress-row">
+    <span class="progress-label">Technical SEO</span>
+    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width:41%;background:#c53030;"></span></span>
+    <span class="progress-val val-red">41/100</span>
+  </div>
+  <div class="progress-row">
+    <span class="progress-label">Content Quality</span>
+    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width:34%;background:#c53030;"></span></span>
+    <span class="progress-val val-red">34/100</span>
+  </div>
+  <div class="progress-row">
+    <span class="progress-label">On-Page SEO</span>
+    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width:28%;background:#c53030;"></span></span>
+    <span class="progress-val val-red">28/100</span>
+  </div>
+  <div class="progress-row">
+    <span class="progress-label">Schema / Structured Data</span>
+    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width:1%;background:#c53030;"></span></span>
+    <span class="progress-val val-red">0/100</span>
+  </div>
+  <div class="progress-row">
+    <span class="progress-label">Performance (CWV)</span>
+    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width:53%;background:#d4740e;"></span></span>
+    <span class="progress-val val-amber">53/100</span>
+  </div>
+  <div class="progress-row">
+    <span class="progress-label">AI Search (GEO)</span>
+    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width:21%;background:#c53030;"></span></span>
+    <span class="progress-val val-red">21/100</span>
+  </div>
+  <div class="progress-row">
+    <span class="progress-label">Images</span>
+    <span class="progress-bar-bg"><span class="progress-bar-fill" style="width:25%;background:#c53030;"></span></span>
+    <span class="progress-val val-red">25/100</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 2. TECHNICAL SEO ═══════════════════ -->
+<div class="section" id="technical">
+  <div class="section-header">
+    <h2>2. Technical SEO</h2>
+    <div class="section-score val-red">41/100</div>
+  </div>
+
+  <table>
+    <thead><tr><th>Category</th><th>Score</th><th>Status</th><th>Top Issue</th></tr></thead>
+    <tbody>
+      <tr><td>Crawlability</td><td class="tag-critical">20/100</td><td><span class="status status-fail">FAIL</span></td><td>No robots.txt (404), no sitemap referenced</td></tr>
+      <tr><td>Indexability</td><td class="tag-critical">25/100</td><td><span class="status status-fail">FAIL</span></td><td>No canonical tags, duplicate meta descriptions sitewide, no OG tags</td></tr>
+      <tr><td>Security</td><td class="tag-high">55/100</td><td><span class="status status-warn">WARN</span></td><td>4 security headers missing (CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy)</td></tr>
+      <tr><td>URL Structure</td><td class="tag-low">80/100</td><td><span class="status status-pass">PASS</span></td><td>Clean, lowercase, no parameters — minor gap: no canonical to reinforce</td></tr>
+      <tr><td>Mobile Optimization</td><td class="tag-low">85/100</td><td><span class="status status-pass">PASS</span></td><td>Viewport tag correct; responsive Tailwind breakpoints; 64px touch targets</td></tr>
+      <tr><td>Core Web Vitals</td><td class="tag-high">55/100</td><td><span class="status status-warn">WARN</span></td><td>LCP element starts at opacity:0 via JS; no image dimensions (CLS risk)</td></tr>
+      <tr><td>Structured Data</td><td class="tag-critical">0/100</td><td><span class="status status-fail">FAIL</span></td><td>Zero JSON-LD, Microdata, or RDFa on any page</td></tr>
+      <tr><td>JS Rendering</td><td class="tag-high">50/100</td><td><span class="status status-warn">WARN</span></td><td>FadeUp opacity:0 SSR pattern; View Transitions without canonicals</td></tr>
+      <tr><td>IndexNow</td><td class="tag-critical">0/100</td><td><span class="status status-fail">FAIL</span></td><td>Not implemented — easy win for Bing/Yandex fast indexing</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Critical Technical Fixes</h3>
+
+  <h4>Create <code>/public/robots.txt</code></h4>
+  <pre>User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://innovate-proto.vercel.app/sitemap.xml</pre>
+
+  <h4>Add canonical tag to <code>src/layouts/Layout.astro</code></h4>
+  <pre>&lt;link rel="canonical" href={Astro.url.href} /&gt;</pre>
+
+  <h4>Add security headers to <code>vercel.json</code></h4>
+  <pre>{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}</pre>
+</div>
+
+<!-- ═══════════════════ 3. CONTENT QUALITY ═══════════════════ -->
+<div class="section" id="content">
+  <div class="section-header">
+    <h2>3. Content Quality &amp; E-E-A-T</h2>
+    <div class="section-score val-red">34/100</div>
+  </div>
+
+  <table>
+    <thead><tr><th>E-E-A-T Factor</th><th>Score</th><th>Key Gap</th></tr></thead>
+    <tbody>
+      <tr><td>Experience</td><td class="tag-critical">3/25</td><td>Portfolio has names only — no case study detail, no results, no before/after</td></tr>
+      <tr><td>Expertise</td><td class="tag-critical">5/25</td><td>No team bios, no named authors, no credentials, no technical depth</td></tr>
+      <tr><td>Authoritativeness</td><td class="tag-high">7/25</td><td>3 testimonials present (Vercel/Stripe/Linear) but unverified; no press coverage</td></tr>
+      <tr><td>Trustworthiness</td><td class="tag-high">10/25</td><td>Privacy Policy &amp; Terms link to <code>#</code> placeholder — legally and trust-critical</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Content Issues by Page</h3>
+  <table>
+    <thead><tr><th>Page</th><th>Word Count</th><th>Meta Description</th><th>H1</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>/</td><td>~500 (borderline)</td><td>"Premium Corporate Agency" (25 chars — ALL pages)</td><td>"CRAFTING THE FUTURE OF DIGITAL." — no keyword</td><td><span class="status status-fail">FAIL</span></td></tr>
+      <tr><td>/services</td><td>~350</td><td>Same generic description</td><td>"OUR SERVICES." — no keyword</td><td><span class="status status-fail">FAIL</span></td></tr>
+      <tr><td>/about</td><td>~280</td><td>Same generic description</td><td>Acceptable</td><td><span class="status status-warn">WARN</span></td></tr>
+      <tr><td>/work</td><td>~200 + image titles</td><td>Same generic description</td><td>"SELECTED WORK." — no keyword</td><td><span class="status status-fail">FAIL</span></td></tr>
+      <tr><td>/contact</td><td>~150</td><td>Same generic description</td><td>Acceptable</td><td><span class="status status-warn">WARN</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Recommended Meta Descriptions</h3>
+  <table>
+    <thead><tr><th>Page</th><th>Recommended Meta Description</th><th>Length</th></tr></thead>
+    <tbody>
+      <tr><td>/</td><td>We craft high-performance branding, web design, and digital products for tech startups, fintech, and premium brands. Based in Singapore, working globally.</td><td>158 chars</td></tr>
+      <tr><td>/services</td><td>Brand identity, UX/UI design, full-stack development, and strategic growth — four service pillars for brands ready to stand out and scale.</td><td>141 chars</td></tr>
+      <tr><td>/about</td><td>Founded in 2018, Innovate is a digital creative agency built at the intersection of design excellence and technical precision for B2B brands.</td><td>143 chars</td></tr>
+      <tr><td>/work</td><td>Six case studies across branding, product design, web development, and e-commerce — work crafted for high-growth B2B brands since 2018.</td><td>139 chars</td></tr>
+      <tr><td>/contact</td><td>Ready to build something extraordinary? Get in touch with Innovate to start a conversation about your brand identity or digital project.</td><td>138 chars</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 4. ON-PAGE SEO ═══════════════════ -->
+<div class="section" id="onpage">
+  <div class="section-header">
+    <h2>4. On-Page SEO</h2>
+    <div class="section-score val-red">28/100</div>
+  </div>
+
+  <table>
+    <thead><tr><th>Issue</th><th>Pages</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>No Open Graph or Twitter Card tags — blank social previews</td><td>All 5</td><td><span class="tag-critical">CRITICAL</span></td></tr>
+      <tr><td>Meta description identical (25 chars) on all pages</td><td>All 5</td><td><span class="tag-critical">CRITICAL</span></td></tr>
+      <tr><td>No canonical link tags</td><td>All 5</td><td><span class="tag-critical">CRITICAL</span></td></tr>
+      <tr><td>Title tags generic — no keyword targeting</td><td>/services, /work</td><td><span class="tag-high">HIGH</span></td></tr>
+      <tr><td>H1 contains no targetable keyword</td><td>/</td><td><span class="tag-high">HIGH</span></td></tr>
+      <tr><td>H2 headings are generic labels, not keyword-bearing</td><td>All</td><td><span class="tag-high">MEDIUM</span></td></tr>
+      <tr><td>Social footer links point to <code>#</code></td><td>All</td><td><span class="tag-critical">CRITICAL</span></td></tr>
+      <tr><td>Privacy Policy &amp; Terms link to <code>#</code></td><td>All</td><td><span class="tag-critical">CRITICAL</span></td></tr>
+      <tr><td>SVG-only favicon — no PNG fallback, no apple-touch-icon</td><td>All</td><td><span class="tag-medium">MEDIUM</span></td></tr>
+      <tr><td>No address, phone, or email visible on homepage</td><td>/</td><td><span class="tag-high">HIGH</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Recommended Title Tags</h3>
+  <table>
+    <thead><tr><th>Page</th><th>Current Title</th><th>Recommended Title</th></tr></thead>
+    <tbody>
+      <tr><td>/</td><td>Modern Digital Agency | Innovate (32)</td><td>Digital Creative Agency for Tech &amp; Fintech Brands | Innovate (62)</td></tr>
+      <tr><td>/services</td><td>Our Services | Innovate (23)</td><td>Branding, Web Design &amp; Digital Strategy | Innovate (51)</td></tr>
+      <tr><td>/about</td><td>About Us | Innovate (20)</td><td>About Innovate — B2B Digital Agency Since 2018 (47)</td></tr>
+      <tr><td>/work</td><td>Selected Work | Innovate (24)</td><td>B2B Digital Portfolio &amp; Case Studies | Innovate (50)</td></tr>
+      <tr><td>/contact</td><td>Contact Us | Innovate (22)</td><td>Contact Innovate — Start Your Project (38)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>OG Tags — Add to Layout.astro</h3>
+  <pre>&lt;meta property="og:title" content={title} /&gt;
+&lt;meta property="og:description" content={description} /&gt;
+&lt;meta property="og:image" content="https://innovate-proto.vercel.app/og-image.jpg" /&gt;
+&lt;meta property="og:url" content={Astro.url.href} /&gt;
+&lt;meta property="og:type" content="website" /&gt;
+&lt;meta name="twitter:card" content="summary_large_image" /&gt;
+&lt;meta name="twitter:title" content={title} /&gt;
+&lt;meta name="twitter:description" content={description} /&gt;
+&lt;meta name="twitter:image" content="https://innovate-proto.vercel.app/og-image.jpg" /&gt;</pre>
+  <p style="font-size:9pt;color:var(--muted);font-family:Arial,sans-serif;">Create a 1200×630px branded <code>og-image.jpg</code> in <code>/public/</code>.</p>
+</div>
+
+<!-- ═══════════════════ 5. SCHEMA ═══════════════════ -->
+<div class="section" id="schema">
+  <div class="section-header">
+    <h2>5. Schema &amp; Structured Data</h2>
+    <div class="section-score val-red">0/100</div>
+  </div>
+
+  <div class="critical-box">Zero structured data detected on any of the 5 pages audited. No JSON-LD, no Microdata, no RDFa. The site is ineligible for every Google rich result type.</div>
+
+  <h3>Missing Schema by Priority</h3>
+  <table>
+    <thead><tr><th>Priority</th><th>Schema Type</th><th>Target Page</th><th>Benefit</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag-critical">CRITICAL</span></td><td>Organization + WebSite</td><td>/</td><td>Knowledge Panel eligibility, entity disambiguation</td></tr>
+      <tr><td><span class="tag-critical">CRITICAL</span></td><td>FAQPage</td><td>/</td><td>AI citation eligibility (ChatGPT, Perplexity, Google AIO)</td></tr>
+      <tr><td><span class="tag-high">HIGH</span></td><td>Service (×4)</td><td>/services</td><td>Rich results for individual service offerings</td></tr>
+      <tr><td><span class="tag-high">HIGH</span></td><td>BreadcrumbList</td><td>All inner pages</td><td>Breadcrumb rich results in SERPs</td></tr>
+      <tr><td><span class="tag-high">HIGH</span></td><td>AboutPage</td><td>/about</td><td>Entity signal strength</td></tr>
+      <tr><td><span class="tag-high">HIGH</span></td><td>ContactPage + ContactPoint</td><td>/contact</td><td>Contact info in Knowledge Graph</td></tr>
+      <tr><td><span class="tag-medium">MEDIUM</span></td><td>CreativeWork (×6)</td><td>/work</td><td>Portfolio metadata for AI citation and rich results</td></tr>
+      <tr><td><span class="tag-medium">MEDIUM</span></td><td>Review (×3)</td><td>/</td><td>Testimonial entity enrichment</td></tr>
+      <tr><td>INFO</td><td>FAQPage (Google note)</td><td>/</td><td>FAQPage NOT recommended for Google rich results on commercial sites (Aug 2023) — AI citation benefit only</td></tr>
+    </tbody>
+  </table>
+  <p>Full JSON-LD blocks for all pages are provided in <a href="#schema-code">Section 12</a>.</p>
+</div>
+
+<!-- ═══════════════════ 6. PERFORMANCE ═══════════════════ -->
+<div class="section" id="performance">
+  <div class="section-header">
+    <h2>6. Core Web Vitals &amp; Performance</h2>
+    <div class="section-score val-amber">53/100</div>
+  </div>
+
+  <div class="info-box">CrUX field data unavailable — insufficient real-user Chrome traffic on this Vercel preview domain. All estimates are lab-based from direct HTML + asset analysis.</div>
+
+  <h3>Core Web Vitals — Lab Estimates</h3>
+  <table>
+    <thead><tr><th>Metric</th><th>Estimated Value (Mobile)</th><th>Threshold (Good)</th><th>Rating</th></tr></thead>
+    <tbody>
+      <tr><td>LCP (Largest Contentful Paint)</td><td>3,800–5,200ms</td><td>≤ 2,500ms</td><td><span class="status status-fail">POOR</span></td></tr>
+      <tr><td>INP (Interaction to Next Paint)</td><td>200–350ms</td><td>≤ 200ms</td><td><span class="status status-warn">NEEDS WORK</span></td></tr>
+      <tr><td>CLS (Cumulative Layout Shift)</td><td>0.05–0.15</td><td>≤ 0.1</td><td><span class="status status-warn">NEEDS WORK</span></td></tr>
+      <tr><td>FCP (First Contentful Paint)</td><td>2,200–3,000ms</td><td>≤ 1,800ms</td><td><span class="status status-warn">NEEDS WORK</span></td></tr>
+      <tr><td>TTFB (Time to First Byte)</td><td>~219ms</td><td>≤ 800ms</td><td><span class="status status-pass">GOOD</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Resource Budget</h3>
+  <table>
+    <thead><tr><th>Resource Type</th><th>Count</th><th>Compressed Size</th><th>Assessment</th></tr></thead>
+    <tbody>
+      <tr><td>HTML document (SSR)</td><td>1</td><td>43.8 KB</td><td><span class="status status-warn">WARN</span> — large due to WorkSlider props</td></tr>
+      <tr><td>CSS (_astro/)</td><td>1</td><td>8.9 KB</td><td><span class="status status-pass">GOOD</span></td></tr>
+      <tr><td>JavaScript (_astro/ chunks)</td><td>12</td><td><strong>197.7 KB</strong></td><td><span class="status status-fail">POOR</span> — GSAP dominant</td></tr>
+      <tr><td>— GSAP core + ScrollTrigger</td><td>2</td><td>111.2 KB</td><td><span class="status status-fail">POOR</span> — loaded client:load</td></tr>
+      <tr><td>— React renderer</td><td>1</td><td>58.6 KB</td><td><span class="status status-warn">WARN</span> — overkill for mostly-static</td></tr>
+      <tr><td>Google Fonts CSS</td><td>1</td><td>20.1 KB</td><td><span class="status status-warn">WARN</span> — render-blocking</td></tr>
+      <tr><td>Images (Unsplash)</td><td>6 live + 1 broken</td><td><strong>~1,998 KB</strong></td><td><span class="status status-fail">CRITICAL</span> — all at 2070px width</td></tr>
+      <tr><td><strong>Total page weight</strong></td><td></td><td><strong>~2.27 MB</strong></td><td><span class="status status-fail">POOR</span> — budget should be &lt; 1 MB</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Performance Fix Roadmap</h3>
+  <table>
+    <thead><tr><th>#</th><th>Action</th><th>Estimated Gain</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Add <code>loading="lazy"</code> to below-fold images; <code>fetchpriority="high"</code> + correct <code>w=</code> to above-fold image</td><td>+15–20 pts mobile</td></tr>
+      <tr><td>2</td><td>Move GSAP + Lenis to <code>client:idle</code> or <code>client:visible</code></td><td>+10–15 pts TBT</td></tr>
+      <tr><td>3</td><td>Fix FadeUp <code>opacity:0</code> — use CSS-only reveal without JS for LCP element</td><td>+8–12 pts LCP</td></tr>
+      <tr><td>4</td><td>Self-host fonts via <code>@fontsource/manrope</code> and <code>@fontsource/inter</code></td><td>+3–5 pts</td></tr>
+      <tr><td>5</td><td>Fix broken Zenith App image (404)</td><td>UX fix</td></tr>
+      <tr><td>6</td><td>Change WorkSlider from <code>client:load</code> to <code>client:visible</code></td><td>+3–5 pts</td></tr>
+      <tr><td>7</td><td>Convert CustomCursor + FadeUp from React islands to plain <code>&lt;script&gt;</code> tags</td><td>−58.6 KB React bundle</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 7. GEO ═══════════════════ -->
+<div class="section" id="geo">
+  <div class="section-header">
+    <h2>7. AI Search Readiness (GEO)</h2>
+    <div class="section-score val-red">21/100</div>
+  </div>
+
+  <table>
+    <thead><tr><th>Platform</th><th>Score</th><th>Primary Blocker</th></tr></thead>
+    <tbody>
+      <tr><td>Google AI Overviews</td><td class="tag-critical">8/100</td><td>No schema, no E-E-A-T, no FAQ markup, generic brand name "Innovate"</td></tr>
+      <tr><td>ChatGPT Web Search</td><td class="tag-critical">12/100</td><td>No llms.txt, no citable passages, placeholder testimonials</td></tr>
+      <tr><td>Perplexity</td><td class="tag-critical">15/100</td><td>No llms.txt; SSR is a positive but zero citable facts</td></tr>
+      <tr><td>Bing Copilot</td><td class="tag-critical">14/100</td><td>No Open Graph, no schema, no author signals</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Key GEO Issues</h3>
+  <table>
+    <thead><tr><th>Issue</th><th>Severity</th></tr></thead>
+    <tbody>
+      <tr><td>robots.txt missing — AI crawlers operate with zero directives</td><td><span class="tag-critical">CRITICAL</span></td></tr>
+      <tr><td>llms.txt missing — no guided AI discovery of site content</td><td><span class="tag-high">HIGH</span></td></tr>
+      <tr><td>No citable fact-dense passages — every paragraph is brand-speak</td><td><span class="tag-critical">CRITICAL</span></td></tr>
+      <tr><td>No named team members — site is unverifiable by AI citation filters</td><td><span class="tag-critical">CRITICAL</span></td></tr>
+      <tr><td>Brand name "Innovate" is generic and high-collision — AI cannot disambiguate</td><td><span class="tag-high">HIGH</span></td></tr>
+      <tr><td>Testimonials attributed to Vercel CEO / Stripe — likely prototype placeholders</td><td><span class="tag-high">HIGH</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Recommended <code>/public/llms.txt</code></h3>
+  <pre># Innovate
+
+&gt; Innovate is a digital creative agency founded in 2018, specialising in brand
+identity, UX/UI design, web development, and strategic growth for tech startups,
+financial services, and premium consumer brands. Projects typically run 6–12
+weeks. The team works without account managers — clients deal directly with
+designers and developers.
+
+## Key Pages
+- [About](https://innovate-proto.vercel.app/about): Company background and values
+- [Services](https://innovate-proto.vercel.app/services): Brand identity, digital
+  experience, technical execution, strategic growth
+- [Work](https://innovate-proto.vercel.app/work): Portfolio of completed projects
+- [Contact](https://innovate-proto.vercel.app/contact): Get in touch
+
+## Contact
+hello@innovate.agency</pre>
+</div>
+
+<!-- ═══════════════════ 8. SXO ═══════════════════ -->
+<div class="section" id="sxo">
+  <div class="section-header">
+    <h2>8. Search Experience Optimization (SXO)</h2>
+    <div class="section-score val-red">38/100</div>
+  </div>
+
+  <div class="critical-box">
+    <strong>CRITICAL: Page-Type Mismatch</strong><br>
+    Every target SERP ("digital agency", "branding agency for startups") is dominated by listicle comparison guides — not individual agency homepages. The current homepage is a brand presentation asset. It cannot rank for non-branded head terms without a content layer above it in the funnel.
+  </div>
+
+  <h3>SXO Dimension Scores</h3>
+  <table>
+    <thead><tr><th>Dimension</th><th>Score</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>Page Type Match</td><td class="tag-critical">3/15</td><td>All pages are brand showcase — SERP requires listicle/guide content</td></tr>
+      <tr><td>Content Depth</td><td class="tag-critical">5/15</td><td>~900 words homepage; no process, no pricing signal, no outcomes</td></tr>
+      <tr><td>UX Signals</td><td class="tag-high">7/15</td><td>Navigation clean; but 6 CTAs with no hierarchy dilute conversion</td></tr>
+      <tr><td>Schema</td><td class="tag-critical">0/15</td><td>No schema — zero</td></tr>
+      <tr><td>Media</td><td class="tag-high">6/15</td><td>Unsplash stock; no original photography, no video</td></tr>
+      <tr><td>Authority</td><td class="tag-high">8/15</td><td>Strong testimonial names (if real); social present; no backlinks/press</td></tr>
+      <tr><td>Freshness</td><td class="tag-low">9/10</td><td>Copyright 2026; projects dated 2022–2024; recently built</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Persona Scores</h3>
+  <table>
+    <thead><tr><th>Persona</th><th>Score</th><th>Primary Gap</th></tr></thead>
+    <tbody>
+      <tr><td>Tech Startup Founder (pre-Series A)</td><td class="tag-critical">15/40</td><td>No startup language, no calendar CTA, no process visibility</td></tr>
+      <tr><td>Marketing Director, Financial Services</td><td class="tag-critical">11/40</td><td>No enterprise signals, no downloadable credentials, no FS case study</td></tr>
+      <tr><td>CMO, Luxury Brand</td><td class="tag-critical">15/40</td><td>Growth-hacking vocabulary conflicts with premium; no luxury portfolio filter</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 9. BACKLINKS ═══════════════════ -->
+<div class="section" id="backlinks">
+  <div class="section-header">
+    <h2>9. Backlinks &amp; Domain Authority</h2>
+  </div>
+
+  <div class="critical-box">
+    CRITICAL: No production domain exists. The <code>innovate-proto.vercel.app</code> subdomain has zero link equity and is absent from Common Crawl (Jan–Mar 2026). Authority from vercel.app's global #374 PageRank does NOT transfer to subdomains. All link building should be deferred until a branded custom domain is live.
+  </div>
+
+  <h3>Link Building Roadmap</h3>
+  <table>
+    <thead><tr><th>Phase</th><th>Timeline</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr><td>Foundation</td><td>Month 1–2</td><td>Custom domain launch → 301 from vercel.app → Google Business Profile → LinkedIn Company Page → Clutch.co agency profile → Singapore business directories</td></tr>
+      <tr><td>Content-Led Authority</td><td>Month 2–6</td><td>1 case study/month with attributed results → Guest articles on e27/Tech in Asia → Agency award submissions (Marketing Interactive, Design Singapore)</td></tr>
+      <tr><td>Partner Links</td><td>Month 3–12</td><td>Client attribution links → Webflow/Contentful partner directory → Co-authored content with non-competing partners</td></tr>
+      <tr><td>Monitoring</td><td>Ongoing</td><td>Configure Moz API (free, 2,500 rows/month) → Bing Webmaster Tools → Google Search Console "Links" report</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 10. SITEMAP ═══════════════════ -->
+<div class="section" id="sitemap">
+  <div class="section-header">
+    <h2>10. Sitemap &amp; Crawl Architecture</h2>
+  </div>
+
+  <table>
+    <thead><tr><th>Item</th><th>Status</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><td>robots.txt</td><td><span class="status status-fail">MISSING</span></td><td>Returns 404 — create at /public/robots.txt</td></tr>
+      <tr><td>/sitemap.xml</td><td><span class="status status-pass">EXISTS</span></td><td>Manually maintained; valid XML; all 5 pages present</td></tr>
+      <tr><td>@astrojs/sitemap integration</td><td><span class="status status-warn">MISCONFIGURED</span></td><td>Missing <code>site</code> property in astro.config.mjs — integration won't build</td></tr>
+      <tr><td>Sitemap reference in robots.txt</td><td><span class="status status-fail">MISSING</span></td><td>Will be fixed when robots.txt is created</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Fix: Add <code>site</code> to <code>astro.config.mjs</code></h3>
+  <pre>export default defineConfig({
+  site: 'https://innovate-proto.vercel.app',  // ADD THIS
+  integrations: [sitemap()],
+  // ...
+});</pre>
+
+  <h3>Current sitemap.xml — Final Recommended Version</h3>
+  <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;&lt;loc&gt;https://innovate-proto.vercel.app/&lt;/loc&gt;&lt;lastmod&gt;2026-05-07&lt;/lastmod&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://innovate-proto.vercel.app/services&lt;/loc&gt;&lt;lastmod&gt;2026-05-07&lt;/lastmod&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://innovate-proto.vercel.app/about&lt;/loc&gt;&lt;lastmod&gt;2026-05-07&lt;/lastmod&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://innovate-proto.vercel.app/work&lt;/loc&gt;&lt;lastmod&gt;2026-05-07&lt;/lastmod&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://innovate-proto.vercel.app/contact&lt;/loc&gt;&lt;lastmod&gt;2026-05-07&lt;/lastmod&gt;&lt;/url&gt;
+&lt;/urlset&gt;</pre>
+</div>
+
+<!-- ═══════════════════ 11. ACTION PLAN ═══════════════════ -->
+<div class="section" id="actionplan">
+  <h2>11. Prioritized Action Plan</h2>
+
+  <h3><span class="priority-tag priority-critical">CRITICAL</span> Fix Immediately</h3>
+
+  <div class="action-item critical">
+    <h4>C-1. Create <code>/public/robots.txt</code> <span class="effort">Effort: 30 min</span></h4>
+    <p>No robots.txt at /robots.txt (404). All AI crawlers (GPTBot, ClaudeBot, Google-Extended, PerplexityBot) and Googlebot operate with zero directives. No Sitemap pointer. Impact: Crawlability, GEO, AI indexing.</p>
+  </div>
+
+  <div class="action-item critical">
+    <h4>C-2. Add canonical tags to Layout.astro <span class="effort">Effort: 5 min</span></h4>
+    <p>Zero canonical tags sitewide. Vercel preview URLs can index alongside the primary domain, splitting crawl equity. Add <code>&lt;link rel="canonical" href={Astro.url.href} /&gt;</code> to Layout.astro head.</p>
+  </div>
+
+  <div class="action-item critical">
+    <h4>C-3. Write unique meta descriptions for all 5 pages <span class="effort">Effort: 1 hr</span></h4>
+    <p>All pages use "Premium Corporate Agency" (25 chars). Google will auto-generate snippets. Target 140–160 characters per page with service keywords. See Section 3 for recommended text.</p>
+  </div>
+
+  <div class="action-item critical">
+    <h4>C-4. Add Organization + WebSite + FAQPage JSON-LD to homepage <span class="effort">Effort: 2 hr</span></h4>
+    <p>Zero schema on all 5 pages. The homepage FAQ section qualifies for AI Overview citation with FAQPage markup. Organization schema enables Knowledge Panel eligibility. Full code in Section 12.</p>
+  </div>
+
+  <div class="action-item critical">
+    <h4>C-5. Add Open Graph and Twitter Card meta tags <span class="effort">Effort: 30 min</span></h4>
+    <p>No OG or Twitter Card tags on any page. LinkedIn, Slack, and WhatsApp shares show blank previews. For a design agency, blank social previews are a brand-damaging gap. See Section 4 for code.</p>
+  </div>
+
+  <div class="action-item critical">
+    <h4>C-6. Fix all <code>href="#"</code> placeholder links <span class="effort">Effort: 30 min</span></h4>
+    <p>Privacy Policy, Terms of Service, LinkedIn, Twitter, and Instagram all link to "#". Privacy Policy / Terms are a legal compliance gap. Replace with real URLs or remove before launch.</p>
+  </div>
+
+  <h3><span class="priority-tag priority-high">HIGH</span> Fix Within 1 Week</h3>
+
+  <div class="action-item high">
+    <h4>H-1. Fix FadeUp LCP issue — remove <code>opacity:0</code> from SSR HTML <span class="effort">Effort: 2–3 hr</span></h4>
+    <p>Hero H1 renders invisible in SSR HTML until JS hydration. This is the primary mobile LCP regression (+1,500–2,700ms). Replace React FadeUp island with CSS-only @keyframes animation.</p>
+  </div>
+
+  <div class="action-item high">
+    <h4>H-2. Lazy-load images + fix responsive sizing <span class="effort">Effort: 2 hr</span></h4>
+    <p>All 7 images load eagerly at 2,070px width regardless of device. ~1.7 MB excess on mobile. Use Astro's &lt;Image&gt; component with loading="lazy", fetchpriority="high" on first image, and w=800 srcset. Fix broken Zenith App 404 image.</p>
+  </div>
+
+  <div class="action-item high">
+    <h4>H-3. Move GSAP + Lenis to <code>client:idle</code> <span class="effort">Effort: 1 hr</span></h4>
+    <p>GSAP (111 KB) loads in the critical path on every page. Causes ~400ms TBT on mobile. Change client:load to client:idle for animation libraries. Convert CustomCursor and FadeUp to vanilla JS.</p>
+  </div>
+
+  <div class="action-item high">
+    <h4>H-4. Strengthen title tags on all pages <span class="effort">Effort: 15 min</span></h4>
+    <p>Current titles are generic ("Our Services | Innovate"). See Section 4 for keyword-targeted alternatives. Highest CTR impact per effort ratio of any fix on the site.</p>
+  </div>
+
+  <div class="action-item high">
+    <h4>H-5. Add named team members to /about page <span class="effort">Effort: 1–2 hr</span></h4>
+    <p>No named individuals anywhere on the site. Google's E-E-A-T framework and AI citation systems both require named, verifiable principals. Add founder name + LinkedIn, 2–3 team profiles with roles and photos.</p>
+  </div>
+
+  <div class="action-item high">
+    <h4>H-6. Add metrics to portfolio /work entries <span class="effort">Effort: 2 hr</span></h4>
+    <p>Six portfolio entries show only name, category, and year. Zero quantified outcomes. Add at least one metric per project. B2B buyers compare agencies on proven results, not aesthetics alone.</p>
+  </div>
+
+  <div class="action-item high">
+    <h4>H-7. Create <code>/public/llms.txt</code> <span class="effort">Effort: 1 hr</span></h4>
+    <p>Emerging standard for AI discovery. Checked by Perplexity, ChatGPT Browse, and Claude.ai before deep crawling. See Section 7 for recommended content.</p>
+  </div>
+
+  <div class="action-item high">
+    <h4>H-8. Add security headers to <code>vercel.json</code> <span class="effort">Effort: 30 min</span></h4>
+    <p>Missing: X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Content-Security-Policy. See Section 2 for vercel.json configuration.</p>
+  </div>
+
+  <h3><span class="priority-tag priority-medium">MEDIUM</span> Fix Within 1 Month</h3>
+
+  <div class="action-item medium">
+    <h4>M-1. Fix <code>site</code> property in <code>astro.config.mjs</code> <span class="effort">Effort: 5 min</span></h4>
+    <p>@astrojs/sitemap integration is configured but won't build without the site property. Add: <code>site: 'https://innovate-proto.vercel.app'</code></p>
+  </div>
+
+  <div class="action-item medium">
+    <h4>M-2. Add width/height to all img tags + fix alt text <span class="effort">Effort: 1 hr</span></h4>
+    <p>No image dimensions → CLS. Truncated alt text (stops at "&") → image SEO loss. Use Astro's &lt;Image&gt; component for automatic sizing, add full descriptive alt text per project.</p>
+  </div>
+
+  <div class="action-item medium">
+    <h4>M-3. Service schema for /services page <span class="effort">Effort: 2 hr</span></h4>
+    <p>4 service pillars (Brand Identity, Digital Experience, Technical Execution, Strategic Growth) each need Service schema with sub-service OfferCatalog. Full code in Section 12.</p>
+  </div>
+
+  <div class="action-item medium">
+    <h4>M-4. Add aria-expanded to mobile hamburger button <span class="effort">Effort: 15 min</span></h4>
+    <p>Missing aria-expanded attribute is a WCAG 2.1 AA violation. Toggle true/false on open/close.</p>
+  </div>
+
+  <div class="action-item medium">
+    <h4>M-5. Self-host Google Fonts <span class="effort">Effort: 30 min</span></h4>
+    <p>External Google Fonts is a render-blocking stylesheet. Use @fontsource/manrope and @fontsource/inter packages. Eliminates external round-trip, improves FCP by 3–5 pts.</p>
+  </div>
+
+  <div class="action-item medium">
+    <h4>M-6. Register branded custom domain before any SEO investment <span class="effort">Effort: 1 hr</span></h4>
+    <p>innovate-proto.vercel.app is a staging domain. No link equity can be built. Register custom domain, configure 301 redirect from Vercel, then begin all SEO work on the production URL.</p>
+  </div>
+
+  <h3><span class="priority-tag priority-low">LOW</span> Backlog</h3>
+  <ul>
+    <li>Implement IndexNow via Vercel's native deploy integration (instant Bing/Yandex indexing on deploy)</li>
+    <li>Add apple-touch-icon.png and favicon-32x32.png alongside existing favicon.svg</li>
+    <li>Add s-maxage=86400 stale-while-revalidate to HTML Cache-Control in vercel.json</li>
+    <li>Disable Lenis smooth scroll for prefers-reduced-motion users</li>
+    <li>Mount CustomCursor only on (hover: hover) media — remove from mobile JS</li>
+    <li>Consider YouTube channel — ~0.737 correlation with AI citation frequency</li>
+    <li>Build one long-form article (2,500+ words) targeting a rankable long-tail query</li>
+    <li>Submit to HSTS Preload List at hstspreload.org (HSTS header already qualifies)</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ 12. SCHEMA JSON-LD ═══════════════════ -->
+<div class="section" id="schema-code">
+  <h2>12. Ready-to-Use Schema JSON-LD</h2>
+
+  <h3>Block 1 — Homepage: Organization + WebSite + FAQPage</h3>
+  <p style="font-size:9pt;color:var(--muted);font-family:Arial,sans-serif;">Add to <code>src/pages/index.astro</code> &lt;head&gt;</p>
+  <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://innovate-proto.vercel.app/#organization",
+      "name": "Innovate",
+      "url": "https://innovate-proto.vercel.app/",
+      "foundingDate": "2018",
+      "description": "Digital creative agency specialising in brand identity, UX/UI design, web development, and strategic growth for tech startups, fintech, and premium B2B brands.",
+      "logo": { "@type": "ImageObject", "url": "https://innovate-proto.vercel.app/favicon.svg" },
+      "contactPoint": { "@type": "ContactPoint", "email": "hello@innovate.agency", "contactType": "customer service" },
+      "sameAs": [
+        "https://linkedin.com/company/innovate",
+        "https://twitter.com/innovate",
+        "https://instagram.com/innovate"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://innovate-proto.vercel.app/#website",
+      "url": "https://innovate-proto.vercel.app/",
+      "name": "Innovate",
+      "publisher": { "@id": "https://innovate-proto.vercel.app/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a typical project take?",
+          "acceptedAnswer": { "@type": "Answer",
+            "text": "Most branding and web projects range from 6 to 12 weeks depending on complexity." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Innovate offer post-launch support?",
+          "acceptedAnswer": { "@type": "Answer",
+            "text": "Yes, Innovate provides ongoing maintenance and performance optimisation packages." }
+        },
+        {
+          "@type": "Question",
+          "name": "What industries does Innovate specialise in?",
+          "acceptedAnswer": { "@type": "Answer",
+            "text": "Innovate primarily works with high-growth technology startups, financial services, and premium lifestyle brands." }
+        }
+      ]
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+
+  <h3>Block 2 — /services: Service Entities + BreadcrumbList</h3>
+  <p style="font-size:9pt;color:var(--muted);font-family:Arial,sans-serif;">Add to <code>src/pages/services.astro</code> &lt;head&gt;</p>
+  <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://innovate-proto.vercel.app/services#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://innovate-proto.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://innovate-proto.vercel.app/services" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://innovate-proto.vercel.app/services#brand-identity",
+      "name": "Brand Identity",
+      "serviceType": "Brand Identity Design",
+      "description": "Visual strategy, logo design, brand guidelines, and typography systems.",
+      "provider": { "@id": "https://innovate-proto.vercel.app/#organization" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://innovate-proto.vercel.app/services#digital-experience",
+      "name": "Digital Experience",
+      "serviceType": "UX/UI Design",
+      "description": "Web design, mobile apps, design systems, and interactive prototyping.",
+      "provider": { "@id": "https://innovate-proto.vercel.app/#organization" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://innovate-proto.vercel.app/services#technical-execution",
+      "name": "Technical Execution",
+      "serviceType": "Web Development",
+      "description": "Astro and Next.js development, full-stack engineering, API integration, and performance audits.",
+      "provider": { "@id": "https://innovate-proto.vercel.app/#organization" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://innovate-proto.vercel.app/services#strategic-growth",
+      "name": "Strategic Growth",
+      "serviceType": "Digital Marketing Strategy",
+      "description": "SEO strategy, market analysis, conversion rate optimisation, and content strategy.",
+      "provider": { "@id": "https://innovate-proto.vercel.app/#organization" }
+    }
+  ]
+}
+&lt;/script&gt;</pre>
+
+  <h3>Block 3 — /work: CollectionPage + CreativeWork Portfolio</h3>
+  <p style="font-size:9pt;color:var(--muted);font-family:Arial,sans-serif;">Add to <code>src/pages/work.astro</code> &lt;head&gt;</p>
+  <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://innovate-proto.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://innovate-proto.vercel.app/work" }
+      ]
+    },
+    { "@type": "CreativeWork", "name": "Project Alpha", "genre": "Branding &amp; Strategy", "creator": { "@id": "https://innovate-proto.vercel.app/#organization" }, "dateCreated": "2024" },
+    { "@type": "CreativeWork", "name": "Zenith Banking", "genre": "Product Design", "creator": { "@id": "https://innovate-proto.vercel.app/#organization" }, "dateCreated": "2024" },
+    { "@type": "CreativeWork", "name": "Lumina Studio", "genre": "Web Development", "creator": { "@id": "https://innovate-proto.vercel.app/#organization" }, "dateCreated": "2023" },
+    { "@type": "CreativeWork", "name": "Aura Fashions", "genre": "E-Commerce", "creator": { "@id": "https://innovate-proto.vercel.app/#organization" }, "dateCreated": "2023" },
+    { "@type": "CreativeWork", "name": "Nexus OS", "genre": "UI/UX Design", "creator": { "@id": "https://innovate-proto.vercel.app/#organization" }, "dateCreated": "2023" },
+    { "@type": "CreativeWork", "name": "Void Records", "genre": "Visual Identity", "creator": { "@id": "https://innovate-proto.vercel.app/#organization" }, "dateCreated": "2022" }
+  ]
+}
+&lt;/script&gt;</pre>
+
+  <p>Full schema JSON-LD for <code>/about</code> (AboutPage) and <code>/contact</code> (ContactPage + ContactPoint) follow the same BreadcrumbList + typed page pattern. Replace <code>innovate-proto.vercel.app</code> with your production domain before deploying.</p>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<div class="report-footer">
+  <p>SEO Audit Report &mdash; innovate-proto.vercel.app &mdash; Generated 7 May 2026</p>
+  <p style="margin-top:6px;">Prepared by Claude SEO Skill &mdash; 9 specialist subagents &mdash; 5 pages audited</p>
+  <p style="margin-top:12px; border-top:1px solid rgba(255,255,255,0.2); padding-top:12px;">
+    Built by agricidaniel &mdash; Join the AI Marketing Hub community<br>
+    Free: <a href="https://www.skool.com/ai-marketing-hub">skool.com/ai-marketing-hub</a> &nbsp;|&nbsp;
+    Pro: <a href="https://www.skool.com/ai-marketing-hub-pro">skool.com/ai-marketing-hub-pro</a>
+  </p>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

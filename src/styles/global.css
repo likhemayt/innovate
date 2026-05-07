@@ -66,6 +66,25 @@
   .hover-lift {
     @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/5;
   }
+  .fade-up-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--duration) cubic-bezier(0.21, 0.47, 0.32, 0.98) var(--delay), 
+                transform var(--duration) cubic-bezier(0.21, 0.47, 0.32, 0.98) var(--delay);
+  }
+  .fade-up-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .hero-fade-up {
+    animation: fadeUpAnim var(--duration, 0.8s) cubic-bezier(0.21, 0.47, 0.32, 0.98) var(--delay, 0s) forwards;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUpAnim {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Dark Theme Overrides */

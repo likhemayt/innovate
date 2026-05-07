@@ -115,6 +115,9 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
               <img 
                 src={item.image} 
                 alt={item.title} 
+                width={800}
+                height={1000}
+                loading="lazy"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
               />
               <div className="absolute inset-0 bg-black/70 group-hover:bg-black/40 transition-colors duration-700" />

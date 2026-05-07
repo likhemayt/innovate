@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FadeUp from '../components/animations/FadeUp';
+import FadeUp from '../components/animations/FadeUp.astro';
 import WorkSlider from '../components/home/WorkSlider';
 import TestimonialSlider from '../components/home/TestimonialSlider';
 
@@ -96,11 +96,84 @@ const faqs = [
 ];
 ---
 
-<Layout title="Modern Digital Agency">
+<Layout 
+  title="Digital Creative Agency for Tech & Fintech Brands"
+  description="We craft high-performance branding, web design, and digital products for tech startups, fintech, and premium brands. Based in Singapore, working globally."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://innovate-proto.vercel.app/#organization",
+          "name": "Innovate",
+          "url": "https://innovate-proto.vercel.app/",
+          "foundingDate": "2018",
+          "description": "Digital creative agency specialising in brand identity, UX/UI design, web development, and strategic growth for tech startups, fintech, and premium B2B brands.",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://innovate-proto.vercel.app/favicon.svg"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@innovate.agency",
+            "contactType": "customer service"
+          },
+          "sameAs": [
+            "https://linkedin.com/company/innovate",
+            "https://twitter.com/innovate",
+            "https://instagram.com/innovate"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://innovate-proto.vercel.app/#website",
+          "url": "https://innovate-proto.vercel.app/",
+          "name": "Innovate",
+          "publisher": {
+            "@id": "https://innovate-proto.vercel.app/#organization"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long does a typical project take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most branding and web projects range from 6 to 12 weeks depending on complexity."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Innovate offer post-launch support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Innovate provides ongoing maintenance and performance optimisation packages."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What industries does Innovate specialise in?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Innovate primarily works with high-growth technology startups, financial services, and premium lifestyle brands."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </Fragment>
+
   <!-- Hero Section -->
   <section class="min-h-[85vh] md:min-h-[100vh] flex flex-col justify-center px-6 md:px-24 bg-[#fafafa] pt-32 md:pt-40 pb-32">
     <div class="max-w-4xl">
-      <FadeUp client:load>
+      <FadeUp nojs={true}>
         <span class="text-neutral-500 font-medium uppercase tracking-[0.2em] text-sm mb-6 block">Innovate Agency</span>
         <h1 class="text-[clamp(3.5rem,11vw,14rem)] font-black tracking-[-0.05em] text-black leading-[0.8] mb-8 uppercase">
           CRAFTING <br /> THE FUTURE <br /> OF DIGITAL.
@@ -121,7 +194,7 @@ const faqs = [
     <section class="py-20 md:py-32 px-6 md:px-24 border-t border-neutral-100 bg-white overflow-hidden">
       <div class={`flex flex-col md:flex-row items-center gap-16 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
         <div class="w-full md:w-1/2">
-          <FadeUp client:visible>
+          <FadeUp>
             <h2 class="text-[clamp(2.5rem,6vw,6rem)] font-black tracking-[-0.05em] mb-8 leading-[0.9] uppercase">{section.title}</h2>
             <p class="text-lg md:text-xl text-neutral-500 mb-10 max-w-lg leading-relaxed">{section.description}</p>
             <a href={section.link} class="group inline-flex items-center gap-2 text-lg font-bold border-b-2 border-black pb-1 hover:border-neutral-300 transition-all uppercase tracking-tighter">
@@ -131,9 +204,9 @@ const faqs = [
           </FadeUp>
         </div>
         <div class="w-full md:w-1/2">
-           <FadeUp client:visible delay={0.2}>
+           <FadeUp delay={0.2}>
               <div class="aspect-[4/3] md:aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-neutral-100" data-reveal="image" data-cursor="explore">
-                <img src={section.image} alt={section.title} class="w-full h-full object-cover" />
+                <img src={section.image} alt={section.title} class="w-full h-full object-cover" loading="lazy" fetchpriority={index === 0 ? "high" : "auto"} width="800" height="1000" />
               </div>
            </FadeUp>
         </div>
@@ -142,7 +215,7 @@ const faqs = [
   ))}
 
   <!-- Featured Case Studies -->
-  <WorkSlider client:load items={caseStudies} title="Featured Work" />
+  <WorkSlider client:visible items={caseStudies} title="Featured Work" />
 
   <!-- Testimonials -->
   <TestimonialSlider client:visible items={testimonials} title="What Clients Say" />
@@ -150,7 +223,7 @@ const faqs = [
   <!-- FAQ Section -->
   <section class="py-20 md:py-32 px-6 md:px-24 bg-[#fafafa]">
     <div class="max-w-4xl mx-auto">
-      <FadeUp client:visible>
+      <FadeUp>
         <h2 class="text-4xl md:text-7xl font-bold tracking-tight mb-12 md:mb-16 text-center">FAQ</h2>
         <div class="space-y-6">
           {faqs.map((faq) => (
@@ -174,7 +247,7 @@ const faqs = [
   <!-- CTA Section -->
   <section class="min-h-screen pt-40 pb-20 px-6 md:px-24 flex flex-col justify-center relative overflow-hidden bg-black text-white text-center" data-bgcolor="#000000">
     <div class="relative z-10">
-      <FadeUp client:visible>
+      <FadeUp>
         <h2 class="text-[clamp(3rem,9vw,11rem)] font-black tracking-[-0.05em] mb-12 md:mb-20 uppercase leading-[0.8]">READY TO <br /> INNOVATE?</h2>
         <a href="/contact" class="inline-flex items-center justify-center h-24 w-24 md:h-40 md:w-40 rounded-full bg-white text-black font-bold text-lg md:text-2xl hover:scale-110 transition-transform duration-500 uppercase tracking-tighter">
           Start

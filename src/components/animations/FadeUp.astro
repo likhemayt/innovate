@@ -1,0 +1,12 @@
+---
+interface Props {
+  delay?: number;
+  duration?: number;
+  className?: string;
+  nojs?: boolean;
+}
+const { delay = 0, duration = 0.8, className = "", nojs = false, ...rest } = Astro.props;
+---
+<div class={`fade-up-element ${nojs ? 'hero-fade-up is-visible' : ''} ${className}`} style={`--delay: ${delay}s; --duration: ${duration}s;`} {...rest}>
+  <slot />
+</div>

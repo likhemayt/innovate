@@ -7,9 +7,14 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://innovate-proto.vercel.app',
+
   vite: {
     plugins: [tailwindcss()]
   },
 
-  integrations: [react(), sitemap()]
+  integrations: [react(), sitemap()],
+  image: {
+    domains: ['images.unsplash.com'],
+  }
 });

@@ -1,8 +1,17 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/500.css';
+import '@fontsource/manrope/600.css';
+import '@fontsource/manrope/700.css';
+import '@fontsource/manrope/800.css';
 import '../styles/global.css';
 import SmoothScroll from '../components/animations/SmoothScroll';
-import CustomCursor from '../components/animations/CustomCursor';
+import CustomCursor from '../components/animations/CustomCursor.astro';
 import Navbar from '../components/Navbar';
 
 interface Props {
@@ -27,19 +36,35 @@ const navItems = [
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | Innovate</title>
 		<ClientRouter />
+		
+		<!-- Canonical URL -->
+		<link rel="canonical" href={Astro.url.href} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url.href} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL('/og-image.jpg', Astro.url)} />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={Astro.url.href} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
+
+		<slot name="head" />
 	</head>
 	<body class="bg-[#fafafa] text-black selection:bg-black selection:text-white overflow-x-hidden flex flex-col min-h-screen">
 		<div class="grain-overlay"></div>
-		<CustomCursor client:load />
+		<CustomCursor />
 		<Navbar client:load />
 		
-		<SmoothScroll client:load>
+		<SmoothScroll client:idle>
 			<!-- Main Content -->
 			<main class="flex-grow pt-20">
 				<slot />
@@ -67,17 +92,17 @@ const navItems = [
 					<div>
 						<h4 class="font-semibold mb-4 text-neutral-300">Socials</h4>
 						<ul class="space-y-3">
-							<li><a href="#" class="text-neutral-400 hover:text-white transition-colors">LinkedIn</a></li>
-							<li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Twitter</a></li>
-							<li><a href="#" class="text-neutral-400 hover:text-white transition-colors">Instagram</a></li>
+							<li><a href="https://linkedin.com/company/innovate" class="text-neutral-400 hover:text-white transition-colors">LinkedIn</a></li>
+							<li><a href="https://twitter.com/innovate" class="text-neutral-400 hover:text-white transition-colors">Twitter</a></li>
+							<li><a href="https://instagram.com/innovate" class="text-neutral-400 hover:text-white transition-colors">Instagram</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-neutral-800 flex flex-col md:flex-row items-center justify-between text-sm text-neutral-500">
 					<p>&copy; {new Date().getFullYear()} Innovate. All rights reserved.</p>
 					<div class="flex gap-4 mt-4 md:mt-0">
-						<a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-						<a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+						<a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+						<a href="/terms" class="hover:text-white transition-colors">Terms of Service</a>
 					</div>
 				</div>
 			</footer>
@@ -90,6 +115,18 @@ const navItems = [
 
 				// Initialize Parallax & Reveals
 				const initAnimations = () => {
+					// Add FadeUp observer
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								observer.unobserve(entry.target);
+							}
+						});
+					}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+					
+					document.querySelectorAll('.fade-up-element:not(.hero-fade-up)').forEach(el => observer.observe(el));
+
 					// Kill previous ScrollTrigger instances to prevent duplicates on navigation
 					ScrollTrigger.getAll().forEach(t => t.kill());
 					// Image Reveals

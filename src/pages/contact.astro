@@ -1,13 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FadeUp from '../components/animations/FadeUp';
+import FadeUp from '../components/animations/FadeUp.astro';
 ---
 
-<Layout title="Contact Us">
+<Layout 
+  title="Contact Innovate — Start Your Project"
+  description="Ready to build something extraordinary? Get in touch with Innovate to start a conversation about your brand identity or digital project."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Innovate",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Innovate",
+        "email": "hello@innovate.agency",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "hello@innovate.agency"
+        }
+      }
+    }
+    </script>
+  </Fragment>
+
   <section class="py-20 md:py-32 px-6 md:px-24 min-h-[80vh] md:min-h-[90vh] flex flex-col justify-center">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
       <div>
-        <FadeUp client:load>
+        <FadeUp nojs={true}>
           <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-8 md:mb-12">HELLO.</h1>
           <p class="text-xl md:text-2xl text-neutral-500 max-w-md leading-relaxed mb-16">
             Have a project in mind? Let's build something extraordinary together.
@@ -27,7 +50,7 @@ import FadeUp from '../components/animations/FadeUp';
       </div>
       
       <div class="bg-white/70 backdrop-blur-md p-8 md:p-16 rounded-[3rem] border border-neutral-100 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)]">
-        <FadeUp client:load delay={0.2}>
+        <FadeUp delay={0.2} nojs={true}>
           <form class="space-y-10">
             <div class="space-y-3">
               <label class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 ml-1">Name</label>

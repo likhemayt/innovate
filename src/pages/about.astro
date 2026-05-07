@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FadeUp from '../components/animations/FadeUp';
+import FadeUp from '../components/animations/FadeUp.astro';
 
 const values = [
   { title: "Design First", description: "We believe that aesthetics and function are inseparable. Design is the first impression and the lasting impact." },
@@ -10,9 +10,44 @@ const values = [
 ];
 ---
 
-<Layout title="About Us">
+<Layout 
+  title="About Innovate — B2B Digital Agency Since 2018"
+  description="Founded in 2018, Innovate is a digital creative agency built at the intersection of design excellence and technical precision for B2B brands."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Innovate",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Innovate",
+        "foundingDate": "2018",
+        "member": [
+          {
+            "@type": "Person",
+            "name": "Marcus Chen",
+            "jobTitle": "Founder & Technical Director"
+          },
+          {
+            "@type": "Person",
+            "name": "Sarah Jenkins",
+            "jobTitle": "Head of Design"
+          },
+          {
+            "@type": "Person",
+            "name": "David Miller",
+            "jobTitle": "Lead Developer"
+          }
+        ]
+      }
+    }
+    </script>
+  </Fragment>
+
   <section class="py-20 md:py-32 px-6 md:px-24">
-    <FadeUp client:load>
+    <FadeUp nojs={true}>
       <h1 class="text-[clamp(3.5rem,10vw,12rem)] font-black tracking-[-0.05em] mb-12 uppercase leading-[0.8]">CRAFTING THE <br /> FUTURE SINCE 2018.</h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <p class="text-xl md:text-2xl text-neutral-600 leading-relaxed">
@@ -31,7 +66,7 @@ const values = [
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {values.map((value) => (
-        <FadeUp client:visible className="p-8 bg-[#fafafa] rounded-2xl">
+        <FadeUp class="p-8 bg-[#fafafa] rounded-2xl">
           <h3 class="text-2xl font-bold mb-4">{value.title}</h3>
           <p class="text-neutral-500 leading-relaxed">{value.description}</p>
         </FadeUp>
@@ -41,10 +76,36 @@ const values = [
 
   <section class="py-20 md:py-32 px-6 md:px-24">
     <div class="aspect-[21/9] w-full overflow-hidden rounded-[2.5rem] bg-neutral-100 mb-24 relative" data-reveal="image">
-       <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Our Studio" class="w-full h-full object-cover" />
+       <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Our Studio" class="w-full h-full object-cover" loading="lazy" width="2069" height="886" />
     </div>
+    
+    <!-- Team Section -->
+    <div class="mb-16">
+      <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-8">OUR TEAM.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+      <FadeUp>
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Marcus Chen" class="w-full aspect-[4/5] object-cover rounded-[2rem] mb-6" loading="lazy" width="800" height="1000" />
+        <h3 class="text-2xl font-bold">Marcus Chen</h3>
+        <p class="text-neutral-500 mb-2">Founder & Technical Director</p>
+        <a href="https://linkedin.com/company/innovate" class="text-sm font-bold border-b border-black pb-1">LinkedIn</a>
+      </FadeUp>
+      <FadeUp delay={0.1}>
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Sarah Jenkins" class="w-full aspect-[4/5] object-cover rounded-[2rem] mb-6" loading="lazy" width="800" height="1000" />
+        <h3 class="text-2xl font-bold">Sarah Jenkins</h3>
+        <p class="text-neutral-500 mb-2">Head of Design</p>
+        <a href="https://linkedin.com/company/innovate" class="text-sm font-bold border-b border-black pb-1">LinkedIn</a>
+      </FadeUp>
+      <FadeUp delay={0.2}>
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" alt="David Miller" class="w-full aspect-[4/5] object-cover rounded-[2rem] mb-6" loading="lazy" width="800" height="1000" />
+        <h3 class="text-2xl font-bold">David Miller</h3>
+        <p class="text-neutral-500 mb-2">Lead Developer</p>
+        <a href="https://linkedin.com/company/innovate" class="text-sm font-bold border-b border-black pb-1">LinkedIn</a>
+      </FadeUp>
+    </div>
+
     <div class="text-center">
-       <FadeUp client:visible>
+       <FadeUp>
          <h2 class="text-4xl md:text-6xl font-bold mb-8">JOIN OUR JOURNEY.</h2>
          <a href="/contact" class="text-2xl font-bold border-b-2 border-black pb-2 hover:border-neutral-300 transition-all">Work with us</a>
        </FadeUp>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FadeUp from '../components/animations/FadeUp';
+import FadeUp from '../components/animations/FadeUp.astro';
 
 const services = [
   {
@@ -26,9 +26,60 @@ const services = [
 ];
 ---
 
-<Layout title="Our Services">
+<Layout 
+  title="Branding, Web Design & Digital Strategy"
+  description="Brand identity, UX/UI design, full-stack development, and strategic growth — four service pillars for brands ready to stand out and scale."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Digital Agency Services",
+      "provider": {
+        "@type": "Organization",
+        "name": "Innovate"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Brand Identity"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digital Experience"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technical Execution"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Strategic Growth"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+  </Fragment>
+
   <section class="py-20 md:py-32 px-6 md:px-24">
-    <FadeUp client:load>
+    <FadeUp nojs={true}>
       <h1 class="text-[clamp(3.5rem,10vw,12rem)] font-black tracking-[-0.05em] mb-12 leading-[0.8] uppercase">OUR <br /> SERVICES.</h1>
       <p class="text-xl md:text-3xl text-neutral-500 max-w-3xl leading-relaxed">
         We specialize in creating bespoke digital solutions that bridge the gap between human needs and business goals.
@@ -39,7 +90,7 @@ const services = [
   <section class="py-20 md:py-32 px-6 md:px-24 bg-white/50 backdrop-blur-sm border-t border-neutral-100">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
       {services.map((service) => (
-        <FadeUp client:visible className="p-8 md:p-14 bg-white border border-neutral-100 rounded-[2.5rem] hover:border-black transition-all duration-700 group hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] cursor-pointer" data-cursor="explore">
+        <FadeUp class="p-8 md:p-14 bg-white border border-neutral-100 rounded-[2.5rem] hover:border-black transition-all duration-700 group hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] cursor-pointer" data-cursor="explore">
           <div class="mb-10 w-12 h-12 md:w-16 md:h-16 bg-neutral-50 rounded-2xl flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-500">
              <span class="text-xl md:text-2xl font-bold">0{services.indexOf(service) + 1}</span>
           </div>
@@ -59,7 +110,7 @@ const services = [
   </section>
 
   <section class="py-20 md:py-32 px-6 md:px-24 bg-black text-white">
-    <FadeUp client:visible>
+    <FadeUp>
       <div class="max-w-4xl">
         <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-12">NEED A CUSTOM SOLUTION?</h2>
         <p class="text-xl text-neutral-400 mb-12">Every brand is unique. We don't believe in one-size-fits-all. Let's discuss your specific needs.</p>
