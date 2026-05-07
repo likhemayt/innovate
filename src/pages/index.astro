@@ -39,19 +39,19 @@ const testimonials = [
   {
     id: 1,
     title: "Outstanding Innovation",
-    category: "Sarah Jenkins, CEO at Vercel",
+    category: "Elena S., CEO at Vercel",
     description: "Innovate transformed our digital presence. Their attention to detail and creative vision is unmatched in the industry.",
   },
   {
     id: 2,
     title: "Game Changing Partner",
-    category: "Michael Chen, Head of Design at Stripe",
+    category: "Marcus R., Head of Design at Stripe",
     description: "Working with Innovate was the best decision for our rebranding. They don't just design; they think strategically.",
   },
   {
     id: 3,
     title: "Technical Excellence",
-    category: "David Miller, CTO at Linear",
+    category: "Adrian L., CTO at Linear",
     description: "The team at Innovate delivered a high-performance web experience that significantly improved our conversion rates.",
   }
 ];
@@ -83,15 +83,15 @@ const homeSections = [
 const faqs = [
   {
     question: "How long does a typical project take?",
-    answer: "Most branding and web projects range from 6 to 12 weeks depending on complexity. We focus on quality and strategic depth rather than rushing deliverables."
+    answer: "Most branding and web projects range from 6 to 12 weeks depending on complexity. We focus on quality and strategic depth rather than rushing deliverables. Our process involves a deep dive into your brand strategy before we even begin the design phase, ensuring that every visual element serves a specific business purpose and resonates with your target audience."
   },
   {
     question: "Do you offer post-launch support?",
-    answer: "Yes, we provide ongoing maintenance and performance optimization packages to ensure your platform remains fast and relevant."
+    answer: "Yes, we provide ongoing maintenance and performance optimization packages to ensure your platform remains fast and relevant. Beyond just technical updates, we monitor user behavior and conversion metrics to suggest iterative improvements, helping your brand stay ahead of the competition and adapt to changing market conditions."
   },
   {
     question: "What industries do you specialize in?",
-    answer: "We primarily work with high-growth technology startups, financial services, and premium lifestyle brands that value design excellence."
+    answer: "We primarily work with high-growth technology startups, financial services, and premium lifestyle brands that value design excellence. Our experience in these sectors allows us to bridge the gap between technical requirements and luxury aesthetics, creating high-performance digital products that don't just function perfectly but also convey a sense of premium quality and trust."
   }
 ];
 ---
@@ -114,7 +114,14 @@ const faqs = [
           "description": "Digital creative agency specialising in brand identity, UX/UI design, web development, and strategic growth for tech startups, fintech, and premium B2B brands.",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://innovate-proto.vercel.app/favicon.svg"
+            "url": "https://innovate-proto.vercel.app/og-image.jpg"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10 Anson Road, International Plaza",
+            "addressLocality": "Singapore",
+            "postalCode": "079903",
+            "addressCountry": "SG"
           },
           "contactPoint": {
             "@type": "ContactPoint",
@@ -134,6 +141,11 @@ const faqs = [
           "name": "Innovate",
           "publisher": {
             "@id": "https://innovate-proto.vercel.app/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://innovate-proto.vercel.app/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
           }
         },
         {
@@ -144,7 +156,7 @@ const faqs = [
               "name": "How long does a typical project take?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Most branding and web projects range from 6 to 12 weeks depending on complexity."
+                "text": "Most branding and web projects range from 6 to 12 weeks depending on complexity. Our process involves a deep dive into your brand strategy before we even begin the design phase, ensuring that every visual element serves a specific business purpose and resonates with your target audience."
               }
             },
             {
@@ -152,7 +164,7 @@ const faqs = [
               "name": "Does Innovate offer post-launch support?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Innovate provides ongoing maintenance and performance optimisation packages."
+                "text": "Yes, Innovate provides ongoing maintenance and performance optimisation packages. Beyond just technical updates, we monitor user behavior and conversion metrics to suggest iterative improvements, helping your brand stay ahead of the competition."
               }
             },
             {
@@ -160,7 +172,7 @@ const faqs = [
               "name": "What industries does Innovate specialise in?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Innovate primarily works with high-growth technology startups, financial services, and premium lifestyle brands."
+                "text": "Innovate primarily works with high-growth technology startups, financial services, and premium lifestyle brands. Our experience allows us to bridge the gap between technical requirements and luxury aesthetics."
               }
             }
           ]

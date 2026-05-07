@@ -28,52 +28,76 @@ const services = [
 
 <Layout 
   title="Branding, Web Design & Digital Strategy"
-  description="Brand identity, UX/UI design, full-stack development, and strategic growth — four service pillars for brands ready to stand out and scale."
+  description="Brand identity, UX/UI design, full-stack development, and strategic growth - four service pillars for brands ready to stand out and scale."
 >
   <Fragment slot="head">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Digital Agency Services",
-      "provider": {
-        "@type": "Organization",
-        "name": "Innovate"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Digital Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Brand Identity"
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://innovate-proto.vercel.app/services#webpage",
+          "url": "https://innovate-proto.vercel.app/services",
+          "name": "Branding, Web Design & Digital Strategy",
+          "description": "Brand identity, UX/UI design, full-stack development, and strategic growth.",
+          "provider": { "@id": "https://innovate-proto.vercel.app/#organization" },
+          "breadcrumb": { "@id": "https://innovate-proto.vercel.app/services#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://innovate-proto.vercel.app/services#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://innovate-proto.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://innovate-proto.vercel.app/services"
             }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Digital Experience"
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "@id": "https://innovate-proto.vercel.app/services#catalog",
+          "name": "Digital Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand Identity"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Digital Experience"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Technical Execution"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Strategic Growth"
+              }
             }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Technical Execution"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Strategic Growth"
-            }
-          }
-        ]
-      }
+          ]
+        }
+      ]
     }
     </script>
   </Fragment>

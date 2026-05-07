@@ -50,26 +50,46 @@ const projects = [
 
 <Layout 
   title="B2B Digital Portfolio & Case Studies"
-  description="Six case studies across branding, product design, web development, and e-commerce — work crafted for high-growth B2B brands since 2018."
+  description="Six case studies across branding, product design, web development, and e-commerce - work crafted for high-growth B2B brands since 2018."
 >
   <Fragment slot="head">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Selected Work",
-      "hasPart": [
+      "@graph": [
         {
-          "@type": "CreativeWork",
-          "name": "Project Alpha",
-          "genre": "Branding",
-          "datePublished": "2024"
+          "@type": "CollectionPage",
+          "@id": "https://innovate-proto.vercel.app/work#webpage",
+          "url": "https://innovate-proto.vercel.app/work",
+          "name": "Selected Work - B2B Digital Portfolio",
+          "description": "Six case studies across branding, product design, web development, and e-commerce.",
+          "breadcrumb": { "@id": "https://innovate-proto.vercel.app/work#breadcrumb" },
+          "hasPart": [
+            { "@type": "CreativeWork", "name": "Project Alpha", "genre": "Branding", "datePublished": "2024" },
+            { "@type": "CreativeWork", "name": "Zenith Banking", "genre": "Product Design", "datePublished": "2024" },
+            { "@type": "CreativeWork", "name": "Lumina Studio", "genre": "Web Development", "datePublished": "2023" },
+            { "@type": "CreativeWork", "name": "Aura Fashions", "genre": "E-Commerce", "datePublished": "2023" },
+            { "@type": "CreativeWork", "name": "Nexus OS", "genre": "UI/UX Design", "datePublished": "2023" },
+            { "@type": "CreativeWork", "name": "Void Records", "genre": "Visual Identity", "datePublished": "2022" }
+          ]
         },
         {
-          "@type": "CreativeWork",
-          "name": "Zenith Banking",
-          "genre": "Product Design",
-          "datePublished": "2024"
+          "@type": "BreadcrumbList",
+          "@id": "https://innovate-proto.vercel.app/work#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://innovate-proto.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Work",
+              "item": "https://innovate-proto.vercel.app/work"
+            }
+          ]
         }
       ]
     }

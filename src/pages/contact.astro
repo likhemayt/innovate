@@ -11,18 +11,58 @@ import FadeUp from '../components/animations/FadeUp.astro';
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Contact Innovate",
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "Innovate",
-        "email": "hello@innovate.agency",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer service",
-          "email": "hello@innovate.agency"
+      "@graph": [
+        {
+          "@type": "ContactPage",
+          "@id": "https://innovate-proto.vercel.app/contact#webpage",
+          "url": "https://innovate-proto.vercel.app/contact",
+          "name": "Contact Innovate — Start Your Project",
+          "description": "Ready to build something extraordinary? Get in touch with Innovate to start a conversation about your brand identity or digital project.",
+          "breadcrumb": { "@id": "https://innovate-proto.vercel.app/contact#breadcrumb" },
+          "mainEntity": { "@id": "https://innovate-proto.vercel.app/#organization" }
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://innovate-proto.vercel.app/#organization",
+          "name": "Innovate Digital Agency",
+          "url": "https://innovate-proto.vercel.app/",
+          "logo": "https://innovate-proto.vercel.app/og-image.jpg",
+          "image": "https://innovate-proto.vercel.app/og-image.jpg",
+          "description": "Digital creative agency specialising in brand identity, UX/UI design, and web development for tech startups and premium brands.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10 Anson Road, International Plaza",
+            "addressLocality": "Singapore",
+            "postalCode": "079903",
+            "addressCountry": "SG"
+          },
+          "email": "hello@innovate.agency",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+65-0000-0000",
+            "contactType": "customer service",
+            "email": "hello@innovate.agency"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://innovate-proto.vercel.app/contact#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://innovate-proto.vercel.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact",
+              "item": "https://innovate-proto.vercel.app/contact"
+            }
+          ]
         }
-      }
+      ]
     }
     </script>
   </Fragment>
@@ -43,7 +83,7 @@ import FadeUp from '../components/animations/FadeUp.astro';
             </div>
             <div>
               <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-4">Visit Us</h4>
-              <p class="text-2xl md:text-4xl font-bold">123 Design Street,<br />Studio 42, London UK</p>
+              <p class="text-2xl md:text-4xl font-bold">10 Anson Road,<br />International Plaza, Singapore</p>
             </div>
           </div>
         </FadeUp>
@@ -51,18 +91,18 @@ import FadeUp from '../components/animations/FadeUp.astro';
       
       <div class="bg-white/70 backdrop-blur-md p-8 md:p-16 rounded-[3rem] border border-neutral-100 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)]">
         <FadeUp delay={0.2} nojs={true}>
-          <form class="space-y-10">
+          <form class="space-y-10" method="POST" action="/contact?success=true">
             <div class="space-y-3">
               <label class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 ml-1">Name</label>
-              <input type="text" placeholder="John Doe" class="w-full bg-transparent border-b-2 border-neutral-100 py-4 px-1 focus:border-black focus:outline-none transition-colors duration-500 placeholder:text-neutral-300 text-lg md:text-xl font-medium" />
+              <input type="text" name="name" required placeholder="John Doe" class="w-full bg-transparent border-b-2 border-neutral-100 py-4 px-1 focus:border-black focus:outline-none transition-colors duration-500 placeholder:text-neutral-300 text-lg md:text-xl font-medium" />
             </div>
             <div class="space-y-3">
               <label class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 ml-1">Email</label>
-              <input type="email" placeholder="john@example.com" class="w-full bg-transparent border-b-2 border-neutral-100 py-4 px-1 focus:border-black focus:outline-none transition-colors duration-500 placeholder:text-neutral-300 text-lg md:text-xl font-medium" />
+              <input type="email" name="email" required placeholder="john@example.com" class="w-full bg-transparent border-b-2 border-neutral-100 py-4 px-1 focus:border-black focus:outline-none transition-colors duration-500 placeholder:text-neutral-300 text-lg md:text-xl font-medium" />
             </div>
             <div class="space-y-3">
               <label class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 ml-1">Project Goal</label>
-              <select class="w-full bg-transparent border-b-2 border-neutral-100 py-4 px-1 focus:border-black focus:outline-none transition-colors duration-500 text-lg md:text-xl font-medium appearance-none">
+              <select name="goal" class="w-full bg-transparent border-b-2 border-neutral-100 py-4 px-1 focus:border-black focus:outline-none transition-colors duration-500 text-lg md:text-xl font-medium appearance-none">
                  <option>Branding</option>
                  <option>Web Development</option>
                  <option>Mobile App</option>
@@ -71,9 +111,9 @@ import FadeUp from '../components/animations/FadeUp.astro';
             </div>
             <div class="space-y-3">
               <label class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 ml-1">Message</label>
-              <textarea rows="4" placeholder="Tell us about your project..." class="w-full bg-transparent border-b-2 border-neutral-100 py-4 px-1 focus:border-black focus:outline-none transition-colors duration-500 placeholder:text-neutral-300 text-lg md:text-xl font-medium resize-none"></textarea>
+              <textarea name="message" required rows="4" placeholder="Tell us about your project..." class="w-full bg-transparent border-b-2 border-neutral-100 py-4 px-1 focus:border-black focus:outline-none transition-colors duration-500 placeholder:text-neutral-300 text-lg md:text-xl font-medium resize-none"></textarea>
             </div>
-            <button class="w-full group bg-black text-white p-6 md:p-8 rounded-full font-bold text-lg md:text-xl hover:bg-neutral-800 transition-all flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-[0.98]">
+            <button type="submit" class="w-full group bg-black text-white p-6 md:p-8 rounded-full font-bold text-lg md:text-xl hover:bg-neutral-800 transition-all flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-[0.98]">
               Send Message
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500"><line x1="22" y1="2" x2="11" y2="13"/><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>

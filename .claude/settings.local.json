@@ -32,7 +32,10 @@
       "WebFetch(domain:www.googleapis.com)",
       "WebFetch(domain:pagespeed.web.dev)",
       "Bash(sort -u echo \"---\" curl -s \"https://innovate-proto.vercel.app/_astro/TestimonialSlider.CjFVAEoc.js\")",
-      "Bash(bc)"
+      "Bash(bc)",
+      "WebFetch(domain:wearepresta.com)",
+      "WebFetch(domain:www.stan.vision)",
+      "WebFetch(domain:www.eleken.co)"
     ]
   }
 }

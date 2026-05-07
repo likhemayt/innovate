@@ -7,7 +7,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://innovate-proto.vercel.app', // <--- This is the M-1 fix
+  site: 'https://innovate-proto.vercel.app',
+  trailingSlash: 'never',
 
   vite: {
     plugins: [tailwindcss()]
