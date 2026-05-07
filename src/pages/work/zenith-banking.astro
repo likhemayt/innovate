@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FadeUp from '../../components/animations/FadeUp.astro';
+---
+
+<Layout 
+  title="Zenith Banking Case Study - Fintech UX/UI Design" 
+  description="How Innovate transformed Zenith Banking's digital experience, resulting in a 200% increase in user engagement and 2M+ active users."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://innovate-proto.vercel.app/work/zenith-banking#article",
+          "headline": "Zenith Banking: Reimagining the Future of Personal Finance",
+          "description": "A comprehensive case study on the digital transformation of Zenith Banking.",
+          "image": "https://innovate-proto.vercel.app/projects/zenith-hero.jpg",
+          "author": { "@id": "https://innovate-proto.vercel.app/#organization" },
+          "publisher": { "@id": "https://innovate-proto.vercel.app/#organization" },
+          "datePublished": "2024-03-15",
+          "mainEntityOfPage": { "@id": "https://innovate-proto.vercel.app/work/zenith-banking#webpage" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://innovate-proto.vercel.app/work/zenith-banking#webpage",
+          "url": "https://innovate-proto.vercel.app/work/zenith-banking",
+          "name": "Zenith Banking Case Study",
+          "breadcrumb": { "@id": "https://innovate-proto.vercel.app/work/zenith-banking#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://innovate-proto.vercel.app/work/zenith-banking#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://innovate-proto.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://innovate-proto.vercel.app/work" },
+            { "@type": "ListItem", "position": 3, "name": "Zenith Banking", "item": "https://innovate-proto.vercel.app/work/zenith-banking" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </Fragment>
+
+  <section class="py-20 md:py-32 px-6 md:px-24">
+    <FadeUp nojs={true}>
+      <span class="text-neutral-500 font-medium uppercase tracking-[0.2em] text-sm mb-6 block">Case Study / 2024</span>
+      <h1 class="text-[clamp(3.5rem,10vw,12rem)] font-black tracking-[-0.05em] mb-12 uppercase leading-[0.8]">ZENITH <br /> BANKING.</h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-y border-neutral-100 py-12">
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-4">Client</h4>
+          <p class="text-xl font-bold">Zenith Financial Group</p>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-4">Services</h4>
+          <p class="text-xl font-bold">Product Design, UX/UI, Mobile App</p>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-4">Results</h4>
+          <p class="text-xl font-bold text-black">2M+ Users / 4.9 App Rating</p>
+        </div>
+      </div>
+    </FadeUp>
+  </section>
+
+  <section class="px-6 md:px-24 mb-32">
+    <div class="aspect-[21/9] w-full overflow-hidden rounded-[3rem] bg-neutral-100 shadow-2xl" data-reveal="image">
+      <img src="/projects/zenith-hero.jpg" alt="Zenith Banking Hero" class="w-full h-full object-cover" />
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-6 py-20">
+    <FadeUp>
+      <div class="prose prose-xl prose-neutral max-w-none">
+        <h2 class="text-4xl md:text-6xl font-bold mb-10 tracking-tight">The Challenge.</h2>
+        <p class="text-xl text-neutral-600 mb-12 leading-relaxed">
+          Zenith Banking, a legacy financial institution, faced a critical challenge: their digital infrastructure was failing to meet the expectations of a new generation of mobile-first users. With an outdated interface and complex navigation, user retention was dropping, and the brand was losing ground to agile fintech startups.
+        </p>
+        <p class="text-xl text-neutral-600 mb-12 leading-relaxed">
+          The primary goal was to completely rethink the mobile banking experience—moving away from traditional transactional models towards a holistic financial management tool that felt personal, intuitive, and secure.
+        </p>
+
+        <h2 class="text-4xl md:text-6xl font-bold mb-10 tracking-tight mt-32">Our Approach.</h2>
+        <p class="text-xl text-neutral-600 mb-12 leading-relaxed">
+          We began with a month-long research phase, conducting deep-dive interviews with over 100 Zenith customers. We discovered that the main friction point wasn't just functionality, but the *emotional* weight of financial management. Users felt anxious, not empowered.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-20">
+          <div class="bg-[#fafafa] p-10 rounded-[2rem] border border-neutral-100">
+            <h4 class="font-bold text-2xl mb-4">Glassmorphic UI</h4>
+            <p class="text-neutral-500">We implemented a sleek, modern aesthetic using glassmorphism to create a sense of depth and transparency—literally and figuratively reflecting the brand's new values.</p>
+          </div>
+          <div class="bg-[#fafafa] p-10 rounded-[2rem] border border-neutral-100">
+            <h4 class="font-bold text-2xl mb-4">Predictive UX</h4>
+            <p class="text-neutral-500">Using machine learning patterns, we designed a dashboard that predicts user needs, surfacing relevant actions like bill payments or saving goals before the user has to search for them.</p>
+          </div>
+        </div>
+
+        <h2 class="text-4xl md:text-6xl font-bold mb-10 tracking-tight mt-32">The Results.</h2>
+        <p class="text-xl text-neutral-600 mb-12 leading-relaxed">
+          The launch of the new Zenith Banking app was a resounding success. Within the first six months, the platform saw a 200% increase in daily active users and a 45% improvement in customer satisfaction scores (NPS).
+        </p>
+
+        <blockquote class="border-l-4 border-black pl-8 my-20">
+          <p class="text-3xl font-bold tracking-tight italic">"Innovate didn't just redesign our app; they redefined our relationship with our customers. The results speak for themselves."</p>
+          <cite class="text-neutral-500 font-bold block mt-4">— Elena S., CEO at Zenith Financial</cite>
+        </blockquote>
+      </div>
+    </FadeUp>
+  </section>
+
+  <section class="py-20 md:py-40 bg-black text-white text-center">
+    <FadeUp>
+      <h2 class="text-4xl md:text-7xl font-bold mb-12 tracking-tight">READY TO TRANSFORM?</h2>
+      <a href="/contact" class="inline-block px-12 py-6 bg-white text-black rounded-full font-bold text-xl hover:scale-105 transition-transform">Start a Project</a>
+    </FadeUp>
+  </section>
+</Layout>

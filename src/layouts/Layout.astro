@@ -58,6 +58,33 @@ const navItems = [
 		<meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
 
 		<slot name="head" />
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"@id": "https://innovate-proto.vercel.app/#organization",
+			"name": "Innovate",
+			"url": "https://innovate-proto.vercel.app/",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://innovate-proto.vercel.app/og-image.jpg"
+			},
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "10 Anson Road, International Plaza",
+				"addressLocality": "Singapore",
+				"postalCode": "079903",
+				"addressCountry": "SG"
+			},
+			"email": "hello@innovate.agency",
+			"sameAs": [
+				"https://linkedin.com/company/innovate",
+				"https://twitter.com/innovate",
+				"https://instagram.com/innovate"
+			]
+		}
+		</script>
 	</head>
 	<body class="bg-[#fafafa] text-black selection:bg-black selection:text-white overflow-x-hidden flex flex-col min-h-screen">
 		<div class="grain-overlay"></div>

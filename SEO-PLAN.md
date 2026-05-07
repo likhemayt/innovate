@@ -28,20 +28,19 @@ This roadmap outlines the strategic phases to improve the SEO health and AI sear
 
 ---
 
-## Phase 2: Expansion (Sprint 2 — Content & E-E-A-T)
+## Phase 2: Expansion (Sprint 2 — Content & E-E-A-T) ✅ COMPLETED
 **Goal:** Build authority signals, improve content depth, and apply proper entity cross-referencing.
-**Target Score:** ~82/100
 
 ### E-E-A-T & Content
-- [ ] **Individual LinkedIn Profiles:** Update LinkedIn links on `/about` to point to real individual profiles instead of the company page.
-- [ ] **Case Study Launch:** Write the first detailed case study (e.g., Zenith Banking) with challenge, solution, and measurable results (500-800 words).
-- [ ] **Expand FAQ Content:** Increase FAQ answers to 60-100 words each to improve AI citation probability.
-- [ ] **Update llms.txt:** Expand `public/llms.txt` to include the FAQ, team bios, and location details for AI crawlers.
+- [x] **Individual LinkedIn Profiles:** Updated LinkedIn links on `/about` to point to personal profiles for Marcus, Sarah, and David.
+- [x] **Case Study Launch:** Created the detailed `Zenith Banking` case study page with challenge, solution, and measurable results.
+- [x] **Expand FAQ Content:** Increased FAQ answers to 100+ words to improve AI citation probability (Done on Homepage).
+- [x] **Update llms.txt:** Expanded `public/llms.txt` with team bios, FAQs, and location details for AI crawlers.
 
 ### Advanced Schema
-- [ ] **Entity Linking:** Apply `@id` cross-references (`#organization`) across Services, About, and Contact schemas to unify the Knowledge Graph.
-- [ ] **BreadcrumbList:** Add `BreadcrumbList` schema to all 4 inner pages for rich snippet eligibility.
-- [ ] **Logo Schema:** Point `Organization.logo.url` to a proper 160x90px+ image instead of `favicon.svg`.
+- [x] **Entity Linking:** Applied global `@id` cross-references (`#organization`) across all pages via `Layout.astro`.
+- [x] **BreadcrumbList:** Implemented `BreadcrumbList` schema across Home, About, Services, Work, and Contact pages.
+- [x] **Logo Schema:** Updated `Organization.logo.url` to point to the high-quality `og-image.jpg`.
 
 ---
 

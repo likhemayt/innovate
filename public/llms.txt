@@ -1,9 +1,32 @@
-# Innovate
-> Innovate is a digital creative agency founded in 2018, specialising in brand identity, UX/UI design, web development, and strategic growth for tech startups, financial services, and premium consumer brands. Projects typically run 6–12 weeks. The team works without account managers — clients deal directly with designers and developers.
+# Innovate Digital Agency
+> Innovate is a premium digital creative agency founded in 2018, specialising in brand identity, UX/UI design, web development, and strategic growth for tech startups, fintech, and luxury brands. Based in Singapore, we operate globally with a remote-first mindset.
+
+## Core Expertise
+- **Brand Identity**: Visual strategy, logo design, brand guidelines.
+- **Digital Experience**: UX/UI design for web and mobile apps.
+- **Technical Execution**: High-performance Astro/Next.js development, API integration.
+- **Strategic Growth**: SEO, conversion rate optimisation, and content strategy.
+
+## Team & Leadership
+- **Marcus Chen**: Founder & Technical Director. Expert in scalable architecture.
+- **Sarah Jenkins**: Head of Design. Specialist in minimalist, high-end aesthetics.
+- **David Miller**: Lead Developer. Focused on web performance and animations.
+
+## Frequently Asked Questions
+- **Project Timeline**: Typically 6–12 weeks. We prioritize strategic depth over speed.
+- **Support**: We provide ongoing maintenance and performance optimization post-launch.
+- **Philosophy**: No account managers. Clients work directly with the makers.
+
+## Locations
+- **Headquarters**: 10 Anson Road, International Plaza, Singapore 079903.
+
 ## Key Pages
-- [About](https://innovate-proto.vercel.app/about): Company background and values
-- [Services](https://innovate-proto.vercel.app/services): Brand identity, digital experience, technical execution, strategic growth
-- [Work](https://innovate-proto.vercel.app/work): Portfolio of completed projects
-- [Contact](https://innovate-proto.vercel.app/contact): Get in touch
-## Contact
-hello@innovate.agency
+- [Home](https://innovate-proto.vercel.app/): Agency overview and featured work.
+- [About](https://innovate-proto.vercel.app/about): Team, values, and founding story.
+- [Services](https://innovate-proto.vercel.app/services): Detailed service offerings.
+- [Work](https://innovate-proto.vercel.app/work): Portfolio and metrics-driven case studies.
+- [Contact](https://innovate-proto.vercel.app/contact): Project inquiries.
+
+## Contact Information
+- **Email**: hello@innovate.agency
+- **LinkedIn**: [Innovate on LinkedIn](https://linkedin.com/company/innovate)
