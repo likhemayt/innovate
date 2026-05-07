@@ -68,11 +68,11 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ items, title }) =
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-48 px-6 md:px-24 bg-[#fafafa] overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-48 px-6 md:px-24 bg-[#fafafa] overflow-hidden" data-bgcolor="#f5f5f5">
       <div className="max-w-[1440px] mx-auto">
         <div className="testimonial-header flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16 md:mb-24">
-          <div className="max-w-2xl">
-            <h2 className="text-5xl md:text-8xl lg:text-[8rem] font-black tracking-tighter uppercase leading-none">{title}</h2>
+          <div className="max-w-3xl">
+            <h2 className="text-[clamp(3.5rem,9vw,11rem)] font-black tracking-[-0.05em] uppercase leading-[0.8]">{title}</h2>
           </div>
           
           {/* Navigation Controls - only visible on carousel breakpoints */}
@@ -97,7 +97,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({ items, title }) =
         {/* Container: Carousel on mobile/tablet, Grid on desktop */}
         <div 
           ref={containerRef}
-          className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-12 transition-none"
+          className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-12"
         >
           {items.map((item, i) => (
             <div 

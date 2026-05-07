@@ -102,7 +102,7 @@ const faqs = [
     <div class="max-w-4xl">
       <FadeUp client:load>
         <span class="text-neutral-500 font-medium uppercase tracking-[0.2em] text-sm mb-6 block">Innovate Agency</span>
-        <h1 class="text-5xl md:text-8xl lg:text-[10rem] font-extrabold tracking-tighter text-black leading-[0.85] mb-8">
+        <h1 class="text-[clamp(3.5rem,11vw,14rem)] font-black tracking-[-0.05em] text-black leading-[0.8] mb-8 uppercase">
           CRAFTING <br /> THE FUTURE <br /> OF DIGITAL.
         </h1>
         <p class="text-xl md:text-2xl text-neutral-600 max-w-xl leading-relaxed mb-10">
@@ -122,9 +122,9 @@ const faqs = [
       <div class={`flex flex-col md:flex-row items-center gap-16 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
         <div class="w-full md:w-1/2">
           <FadeUp client:visible>
-            <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">{section.title}</h2>
-            <p class="text-xl text-neutral-500 mb-8 max-w-lg leading-relaxed">{section.description}</p>
-            <a href={section.link} class="group inline-flex items-center gap-2 text-lg font-bold border-b-2 border-black pb-1 hover:border-neutral-300 transition-all">
+            <h2 class="text-[clamp(2.5rem,6vw,6rem)] font-black tracking-[-0.05em] mb-8 leading-[0.9] uppercase">{section.title}</h2>
+            <p class="text-lg md:text-xl text-neutral-500 mb-10 max-w-lg leading-relaxed">{section.description}</p>
+            <a href={section.link} class="group inline-flex items-center gap-2 text-lg font-bold border-b-2 border-black pb-1 hover:border-neutral-300 transition-all uppercase tracking-tighter">
               {section.linkText}
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -132,8 +132,8 @@ const faqs = [
         </div>
         <div class="w-full md:w-1/2">
            <FadeUp client:visible delay={0.2}>
-              <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100">
-                <img src={section.image} alt={section.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" />
+              <div class="aspect-[4/3] md:aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-neutral-100" data-reveal="image" data-cursor="explore">
+                <img src={section.image} alt={section.title} class="w-full h-full object-cover" />
               </div>
            </FadeUp>
         </div>
@@ -172,10 +172,10 @@ const faqs = [
   </section>
 
   <!-- CTA Section -->
-  <section class="py-40 px-6 md:px-24 bg-black text-white text-center overflow-hidden relative">
+  <section class="min-h-screen pt-40 pb-20 px-6 md:px-24 flex flex-col justify-center relative overflow-hidden bg-black text-white text-center" data-bgcolor="#000000">
     <div class="relative z-10">
       <FadeUp client:visible>
-        <h2 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-12">READY TO <br /> INNOVATE?</h2>
+        <h2 class="text-[clamp(3rem,9vw,11rem)] font-black tracking-[-0.05em] mb-12 md:mb-20 uppercase leading-[0.8]">READY TO <br /> INNOVATE?</h2>
         <a href="/contact" class="inline-flex items-center justify-center h-24 w-24 md:h-40 md:w-40 rounded-full bg-white text-black font-bold text-lg md:text-2xl hover:scale-110 transition-transform duration-500 uppercase tracking-tighter">
           Start
         </a>

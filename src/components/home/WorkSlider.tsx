@@ -60,11 +60,11 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
   const prevSlide = () => goToIndex(currentIndex - 1);
 
   return (
-    <section ref={sectionRef} className="bg-black pt-24 pb-24 overflow-hidden flex flex-col justify-center">
+    <section ref={sectionRef} className="bg-black pt-24 pb-24 overflow-hidden flex flex-col justify-center" data-bgcolor="#000000">
       <div className="px-6 md:px-24 mb-8 md:mb-24">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-12">
           <div className="max-w-4xl">
-            <h2 className="text-white text-5xl md:text-8xl lg:text-[9rem] font-black tracking-tighter uppercase leading-[0.8] mb-6 md:mb-12">{title}</h2>
+            <h2 className="text-white text-[clamp(3.5rem,10vw,12rem)] font-black tracking-[-0.05em] uppercase leading-[0.8] mb-6 md:mb-12">{title}</h2>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-3">
                 <span className="text-white text-xl font-bold tracking-tighter">{(currentIndex + 1).toString().padStart(2, '0')}</span>
@@ -106,12 +106,10 @@ const WorkSlider: React.FC<WorkSliderProps> = ({ items, title }) => {
       <div ref={containerRef} className="flex gap-6 md:gap-12 px-6 md:px-24 w-max items-center">
         {items.map((item, i) => (
           <div 
-            key={item.id}
-            ref={(el) => (cardsRef.current[i] = el)}
-          <div 
             key={item.id} 
             ref={(el) => (cardsRef.current[i] = el)}
             className={`group relative w-[85vw] md:w-[70vw] lg:w-[65vw] min-h-[500px] md:min-h-[550px] lg:h-[600px] flex-shrink-0 overflow-hidden rounded-[2.5rem] md:rounded-[4rem] bg-neutral-900 shadow-2xl transition-all duration-1000 ease-in-out ${currentIndex === i ? 'opacity-100 scale-100' : 'opacity-20 scale-[0.9] blur-[2px]'}`}
+            data-cursor="view"
           >
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img 

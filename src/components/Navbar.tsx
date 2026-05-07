@@ -108,9 +108,10 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[90] bg-white md:hidden pt-32 px-10"
+            className="fixed inset-0 z-[90] bg-white md:hidden flex flex-col pt-28 pb-10 px-10 overflow-y-auto"
           >
-            <nav className="flex flex-col gap-8">
+            {/* Nav Links */}
+            <nav className="flex flex-col gap-6 flex-1">
               {navItems.map((item, index) => (
                 <motion.a
                   initial={{ opacity: 0, x: -20 }}
@@ -124,30 +125,32 @@ const Navbar: React.FC = () => {
                   {item.name}
                 </motion.a>
               ))}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-                className="pt-10 border-t border-neutral-100 mt-10"
-              >
-                <a 
-                  href="/contact" 
-                  onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center justify-center w-full py-6 text-xl font-bold text-white bg-black rounded-3xl"
-                >
-                  Let's Talk
-                </a>
-              </motion.div>
             </nav>
 
-            <div className="absolute bottom-10 left-10">
-              <p className="text-neutral-400 text-sm font-medium mb-4 uppercase tracking-widest">Connect</p>
-              <div className="flex gap-6">
-                <a href="#" className="font-bold text-lg">LinkedIn</a>
-                <a href="#" className="font-bold text-lg">Twitter</a>
-                <a href="#" className="font-bold text-lg">Instagram</a>
+            {/* Bottom Section: Connect + CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="mt-auto flex flex-col gap-8"
+            >
+              <div>
+                <p className="text-neutral-400 text-sm font-medium mb-4 uppercase tracking-widest">Connect</p>
+                <div className="flex gap-6">
+                  <a href="#" className="font-bold text-lg">LinkedIn</a>
+                  <a href="#" className="font-bold text-lg">Twitter</a>
+                  <a href="#" className="font-bold text-lg">Instagram</a>
+                </div>
               </div>
-            </div>
+
+              <a 
+                href="/contact" 
+                onClick={() => setIsOpen(false)}
+                className="inline-flex items-center justify-center w-full py-5 text-xl font-bold text-white bg-black rounded-3xl hover:bg-neutral-800 transition-colors active:scale-95"
+              >
+                Let's Talk
+              </a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
