@@ -26,6 +26,7 @@ const navItems = [
 	{ name: 'Services', href: '/services' },
 	{ name: 'About', href: '/about' },
 	{ name: 'Work', href: '/work' },
+	{ name: 'Contact', href: '/contact' },
 ];
 ---
 
@@ -57,18 +58,25 @@ const navItems = [
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
 
+		<!-- Performance: early connection to image CDN -->
+		<link rel="preconnect" href="https://images.unsplash.com" />
+		<link rel="dns-prefetch" href="https://images.unsplash.com" />
+
 		<slot name="head" />
 		
 		<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
-			"@type": "Organization",
+			"@type": "ProfessionalService",
 			"@id": "https://innovate-proto.vercel.app/#organization",
 			"name": "Innovate",
 			"url": "https://innovate-proto.vercel.app/",
+			"foundingDate": "2018",
 			"logo": {
 				"@type": "ImageObject",
-				"url": "https://innovate-proto.vercel.app/og-image.jpg"
+				"url": "https://innovate-proto.vercel.app/favicon.svg",
+				"width": 64,
+				"height": 64
 			},
 			"address": {
 				"@type": "PostalAddress",
@@ -89,7 +97,7 @@ const navItems = [
 	<body class="bg-[#fafafa] text-black selection:bg-black selection:text-white overflow-x-hidden flex flex-col min-h-screen">
 		<div class="grain-overlay"></div>
 		<CustomCursor />
-		<Navbar client:load />
+		<Navbar client:idle />
 		
 		<SmoothScroll client:idle>
 			<!-- Main Content -->

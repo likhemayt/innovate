@@ -4,7 +4,7 @@ import FadeUp from '../components/animations/FadeUp.astro';
 ---
 
 <Layout 
-  title="Contact Innovate — Start Your Project"
+  title="Contact Innovate - Start Your Project"
   description="Ready to build something extraordinary? Get in touch with Innovate to start a conversation about your brand identity or digital project."
 >
   <Fragment slot="head">
@@ -38,6 +38,34 @@ import FadeUp from '../components/animations/FadeUp.astro';
               "item": "https://innovate-proto.vercel.app/contact"
             }
           ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://innovate-proto.vercel.app/#organization",
+          "name": "Innovate",
+          "url": "https://innovate-proto.vercel.app/",
+          "email": "hello@innovate.agency",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10 Anson Road, International Plaza",
+            "addressLocality": "Singapore",
+            "postalCode": "079903",
+            "addressCountry": "SG"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 1.2762,
+            "longitude": 103.8453
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
+          ],
+          "priceRange": "$$"
         }
       ]
     }
